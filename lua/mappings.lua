@@ -1,38 +1,40 @@
+-- Establish local variables to avoid global lookups
+local set = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+--
 -- Establecer el líder de mapa a un espacio
 vim.g.mapleader = ' '
 
 -- Mapeos generales
--- vim.api.nvim_set_keymap('n', '<Leader>w', ':w<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>q', ':q<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>l', ':nohlsearch<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>t', ':tabnew term://zsh<CR>A', { silent = true })
-vim.api.nvim_set_keymap('n', '<A-h>', '<C-W><', { silent = true })
-vim.api.nvim_set_keymap('n', '<A-j>', '<C-W>-', { silent = true })
-vim.api.nvim_set_keymap('n', '<A-k>', '<C-W>+', { silent = true })
-vim.api.nvim_set_keymap('n', '<A-l>', '<C-W>>', { silent = true })
-vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { silent = true })
-vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { silent = true })
-vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { silent = true })
-vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { silent = true })
-vim.api.nvim_set_keymap('n', 'ZA', ':tabo<CR>', { silent = true })
-vim.api.nvim_set_keymap('t', '<Esc><Esc>', '<C-\\><C-n>', { silent = true })
+set('n', '<Leader>l', ':nohlsearch<CR>', opts)
+set('n', '<Leader>t', ':tabnew term://zsh<CR>A', opts)
+set('n', '<A-h>', '<C-W><', opts)
+set('n', '<A-j>', '<C-W>-', opts)
+set('n', '<A-k>', '<C-W>+', opts)
+set('n', '<A-l>', '<C-W>>', opts)
+set('n', '<C-h>', '<C-w>h', opts)
+set('n', '<C-j>', '<C-w>j', opts)
+set('n', '<C-k>', '<C-w>k', opts)
+set('n', '<C-l>', '<C-w>l', opts)
+set('n', 'ZA', ':tabo<CR>', opts)
+set('t', '<Esc><Esc>', '<C-\\><C-n>', opts)
 
 -- Mapeos Tabby
-vim.api.nvim_set_keymap('n', '<C-x>', ':tabn<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<C-z>', ':tabp<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>k', ':+tabmove<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>j', ':-tabmove<CR>', { silent = true })
+set('n', '<C-x>', ':tabn<CR>', opts)
+set('n', '<C-z>', ':tabp<CR>', opts)
+set('n', '<Leader>k', ':+tabmove<CR>', opts)
+set('n', '<Leader>j', ':-tabmove<CR>', opts)
 
--- Configuración de NvimTree
-vim.api.nvim_set_keymap('n', '<Leader>n', ':NvimTreeFindFileToggle<CR>', { silent = true })
+-- Mapeos NvimTree
+set('n', '<Leader>n', ':NvimTreeFindFileToggle<CR>', opts)
 
 -- Mapeo Fugitive
-vim.api.nvim_set_keymap('n', '<Leader>g', ':G', { silent = true })
+set('n', '<Leader>g', ':G', opts)
 
 -- Mapeos FZF
-vim.api.nvim_set_keymap('n', '<Leader>p', ':Files<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>P', ':Rg<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>b', ':History<CR>', { silent = true })
+set('n', '<Leader>p', ':Files<CR>', opts)
+set('n', '<Leader>P', ':Rg<CR>', opts)
+set('n', '<Leader>b', ':History<CR>', opts)
 
 -- Mapeos específicos de Go (usando autocmd)
 vim.api.nvim_command([[

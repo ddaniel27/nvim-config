@@ -14,6 +14,7 @@ vim.opt.cursorline = true
 vim.opt.swapfile = false
 vim.opt.showtabline = 2
 vim.opt.background = "dark"
+vim.opt.mouse = ""
 
 vim.cmd("colorscheme oxocarbon")
 vim.cmd("highlight MiniFilesBorder cterm=bold")
