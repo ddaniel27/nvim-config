@@ -18,4 +18,4 @@ vim.opt.mouse = ""
 
 vim.cmd("colorscheme oxocarbon")
 vim.cmd("highlight MiniFilesBorder cterm=bold")
-
+require('transparent').clear_prefix('NvimTree')

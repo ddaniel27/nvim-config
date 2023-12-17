@@ -28,6 +28,11 @@ return packer.startup({
 
     use { 'mhinz/vim-signify' }
 
+    use { 
+      'xiyaowong/transparent.nvim',
+      run = ':TransparentEnable',
+  }
+
     use {
       'nvim-tree/nvim-tree.lua',
       config = function() require("setup.nvim-tree") end,
@@ -69,16 +74,8 @@ return packer.startup({
       requires = {
         { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
         { 'neovim/nvim-lspconfig' },
-      },
-    }
-
-    use {
-      'ray-x/go.nvim',
-      requires = {
+        { 'ray-x/go.nvim' },
         { 'neovim/nvim-lspconfig' },
-        { 'ray-x/guihua.lua' },
-        { 'neovim/nvim-lspconfig' },
-        { 'nvim-treesitter/nvim-treesitter' },
       },
     }
 
