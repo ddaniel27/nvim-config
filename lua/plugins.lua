@@ -73,7 +73,6 @@ return packer.startup({
       config = function() require('setup.navigator') end,
       requires = {
         { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
-        { 'neovim/nvim-lspconfig' },
         { 'ray-x/go.nvim' },
         { 'neovim/nvim-lspconfig' },
       },

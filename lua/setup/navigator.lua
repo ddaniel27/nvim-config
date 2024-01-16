@@ -19,6 +19,13 @@ require('navigator').setup({
     code_lens_action = {
       enable = false,
     },
+    gopls = {
+      settings = {
+        gopls = {
+          usePlaceholders = false,
+        },
+      },
+    },
   },
 })
 
