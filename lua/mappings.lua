@@ -29,7 +29,7 @@ set('n', '<Leader>j', ':-tabmove<CR>', opts)
 set('n', '<Leader>n', ':NvimTreeFindFileToggle<CR>', opts)
 
 -- Mapeo Fugitive
-set('n', '<Leader>g', ':G', opts)
+set('n', '<Leader>g<CR>', ':G<CR>', opts)
 
 -- Mapeos FZF
 set('n', '<Leader>p', ':Files<CR>', opts)

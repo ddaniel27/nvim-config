@@ -9,6 +9,11 @@ require('navigator').setup({
       key = "<Leader>+",
       func = require('navigator.dochighlight').hi_symbol,
       desc = "highlight symbol",
+    },
+    {
+      key = "gd",
+      func = require('navigator.definition').definition,
+      desc = "definition",
     }
   },
   lsp = {
