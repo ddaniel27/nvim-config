@@ -31,7 +31,7 @@ return packer.startup({
     use { 
       'xiyaowong/transparent.nvim',
       run = ':TransparentEnable',
-  }
+    }
 
     use {
       'nvim-tree/nvim-tree.lua',
@@ -76,6 +76,11 @@ return packer.startup({
         { 'ray-x/go.nvim' },
         { 'neovim/nvim-lspconfig' },
       },
+    }
+
+    use {
+      'lervag/vimtex',
+      config = function() require('setup.vimtex') end,
     }
 
     use {
