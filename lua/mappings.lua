@@ -41,3 +41,8 @@ vim.api.nvim_command([[
   autocmd FileType go nmap <buffer> <F3> :GoTestFunc<CR>
   autocmd FileType go nmap <buffer> <F2> :GoCoverage -p <CR>
 ]])
+
+-- Mapeos específicos de Tex (usando autocmd)
+vim.api.nvim_command([[
+  autocmd FileType tex nmap <buffer> <F3> :VimtexCompile<CR>
+]])
