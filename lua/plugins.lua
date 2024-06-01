@@ -77,6 +77,16 @@ return packer.startup({
         { 'neovim/nvim-lspconfig' },
       },
     }
+    
+    use {
+      'leoluz/nvim-dap-go',
+      config = function() require('setup.dap') end,
+      requires = {
+        { 'mfussenegger/nvim-dap' },
+        { 'rcarriga/nvim-dap-ui' },
+        { 'nvim-neotest/nvim-nio' },
+      },
+    }
 
     use {
       'lervag/vimtex',

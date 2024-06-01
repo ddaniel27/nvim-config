@@ -41,4 +41,28 @@ maps = {
   }
 })
 
-require('go').setup()
+require('go').setup({
+  dap_debug_vt = false,
+  dap_debug_gui = {
+    layouts = {
+      {
+        elements = {
+          {
+            id = "scopes",
+            size = 0.35
+          },
+          {
+            id = "breakpoints",
+            size = 0.30,
+          },
+          {
+            id = "repl",
+            size = 0.35,
+          },
+        },
+        position = "right",
+        size = 30,
+      },
+    },
+  },
+})
