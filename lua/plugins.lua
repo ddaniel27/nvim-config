@@ -34,8 +34,13 @@ return packer.startup({
     }
 
     use {
+      'karb94/neoscroll.nvim',
+      config = function() require('setup.neoscroll') end,
+    }
+
+    use {
       'nvim-tree/nvim-tree.lua',
-      config = function() require("setup.nvim-tree") end,
+      config = function() require('setup.nvim-tree') end,
       requires = {
         'nvim-tree/nvim-web-devicons',
       },
@@ -119,11 +124,3 @@ return packer.startup({
     compile_path = compile_path,
   },
 })
-
---     use { 'nyoom-engineering/oxocarbon.nvim' }
---     use 'EdenEast/nightfox.nvim'
---     use 'ribru17/bamboo.nvim'
--- use {
---     "alexghergh/nvim-tmux-navigation",
---     config = function() require("setup.nvim-tmux-navigation") end,
---   }
