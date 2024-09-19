@@ -20,6 +20,8 @@ return packer.startup({
   function(use)
     use { 'wbthomason/packer.nvim' }
 
+    use { 'eldritch-theme/eldritch.nvim' }
+
     use { 'nyoom-engineering/oxocarbon.nvim' }
 
     use { 'github/copilot.vim' }

@@ -16,5 +16,5 @@ vim.opt.showtabline = 2
 vim.opt.background = "dark"
 vim.opt.mouse = ""
 
-vim.cmd("colorscheme oxocarbon")
+vim.cmd("colorscheme eldritch")
 require('transparent').clear_prefix('NvimTree')
