@@ -55,13 +55,11 @@ return packer.startup({
     }
 
     use {
-      'junegunn/fzf.vim',
+      'ibhagwan/fzf-lua',
       config = function() require('setup.fzf') end,
       requires = {
-        {
-          'junegunn/fzf',
-          run = function() vim.fn['fzf#install']() end,
-        },
+        'junegunn/fzf',
+        run = './install --bin'
       },
     }
 

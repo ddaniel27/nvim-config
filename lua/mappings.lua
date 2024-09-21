@@ -1,5 +1,5 @@
 -- Establish local variables to avoid global lookups
-local set = vim.api.nvim_set_keymap
+local set = vim.keymap.set
 local opts = { noremap = true, silent = true }
 --
 -- Establecer el líder de mapa a un espacio
@@ -32,16 +32,16 @@ set('n', '<Leader>n', ':NvimTreeFindFileToggle<CR>', opts)
 set('n', '<Leader>g<CR>', ':G<CR>', opts)
 
 -- Mapeos FZF
-set('n', '<Leader>p', ':Files<CR>', opts)
-set('n', '<Leader>P', ':Rg<CR>', opts)
-set('n', '<Leader>b', ':History<CR>', opts)
+set('n', '<Leader>p', require('fzf-lua').files, opts)
+set('n', '<Leader>P', require('fzf-lua').grep_project, opts)
+set('n', '<Leader>b', require('fzf-lua').oldfiles, opts)
 
 -- Mapeos específicos de Go (usando autocmd)
 vim.api.nvim_command([[
   autocmd FileType go nmap <buffer> <F3> :GoTestFunc<CR>
   autocmd FileType go nmap <buffer> <F2> :GoCoverage -p <CR>
   autocmd FileType go nmap <buffer> <F7> :DapToggleBreakpoint<CR>
-  autocmd FileType go nmap <buffer> <F12> :DapUiToggle<CR> :DapContinue<CR>
+  autocmd FileType go nmap <buffer> <F12> :DapUiToggle<CR>:DapContinue<CR>
 ]])
 
 -- Mapeos específicos de Tex (usando autocmd)
