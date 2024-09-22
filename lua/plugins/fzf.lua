@@ -1,9 +1,9 @@
-local actions = require('fzf-lua.actions')
-
 return {
 	{
 		'ibhagwan/fzf-lua',
-		opts = {
+    config = function()
+      local actions = require('fzf-lua.actions')
+      require('fzf-lua').setup({
 			winopts = {
 				height = 0.20,
 				width = 1,
@@ -26,7 +26,8 @@ return {
 					['enter'] = actions.file_tabedit,
 				},
 			},
-		},
+		})
+    end,
 		dependencies = {
 			{
 				'junegunn/fzf',
