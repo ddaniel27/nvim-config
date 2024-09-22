@@ -49,9 +49,20 @@ return {
 		})
     end,
 		dependencies = {
-			{ 'ray-x/guihua.lua', build = 'cd lua/fzy && make' },
 			{ 'ray-x/go.nvim' },
 			{ 'neovim/nvim-lspconfig' },
+			{ 
+        'ray-x/guihua.lua', 
+        build = 'cd lua/fzy && make'
+        config = function()
+          require('guihua.maps').setup({
+            maps = {
+              prev = '<C-k>',
+              next = '<C-j>',
+            }
+          })
+        end,
+      },
 		},
 	}
 }
