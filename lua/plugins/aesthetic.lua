@@ -1,12 +1,3 @@
-local theme = {
-  fill = 'TabLineFill',
-  head = 'TabLine',
-  current_tab = 'TabLineSel',
-  tab = 'TabLine',
-  win = 'TabLine',
-  tail = 'TabLine',
-}
-
 return {
 	{ 
 		'xiyaowong/transparent.nvim',
@@ -35,6 +26,15 @@ return {
 	{
 		'nanozuki/tabby.nvim',
 		config = function() 
+      local theme = {
+        fill = 'TabLineFill',
+        head = 'TabLine',
+        current_tab = 'TabLineSel',
+        tab = 'TabLine',
+        win = 'TabLine',
+        tail = 'TabLine',
+      }
+
 			require('tabby.tabline').set(function(line)
 				return {
 					{
