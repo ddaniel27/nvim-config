@@ -8,7 +8,7 @@
   "eldritch.nvim": { "branch": "master", "commit": "48788ef2f7be7e86b0a57ef87f1a96bc18e24b8b" },
   "fzf": { "branch": "master", "commit": "855f90727af7827d9934b7fa00ea5ed51f5e4e81" },
   "fzf-lua": { "branch": "main", "commit": "a34542d466b46be19198d16199e5245d27e89a9e" },
-  "go.nvim": { "branch": "master", "commit": "97899b2130ec88a5f67f6f669cd7e9137c751a05" },
+  "go.nvim": { "branch": "master", "commit": "ff67641861acde0a9191e9ca85a0b13eac9d0b94" },
   "guihua.lua": { "branch": "master", "commit": "225db770e36aae6a1e9e3a65578095c8eb4038d3" },
   "lazy.nvim": { "branch": "main", "commit": "460e1cd8f24e364d54543a4b0e83f6f4ec1f65fb" },
   "lualine.nvim": { "branch": "master", "commit": "b431d228b7bbcdaea818bdc3e25b8cdbe861f056" },
