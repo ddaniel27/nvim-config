@@ -53,7 +53,7 @@ return {
 			{ 'neovim/nvim-lspconfig' },
 			{ 
         'ray-x/guihua.lua', 
-        build = 'cd lua/fzy && make'
+        build = 'cd lua/fzy && make',
         config = function()
           require('guihua.maps').setup({
             maps = {

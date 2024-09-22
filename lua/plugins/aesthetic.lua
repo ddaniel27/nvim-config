@@ -3,7 +3,10 @@ return {
 		'xiyaowong/transparent.nvim',
 		run = ':TransparentEnable',
 	},
-	{ 'karb94/neoscroll.nvim' },
+	{ 
+    'karb94/neoscroll.nvim',
+    opts = {},
+  },
 	{
 		'nvim-lualine/lualine.nvim',
 		opts = {
