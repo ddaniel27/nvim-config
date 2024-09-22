@@ -40,7 +40,10 @@ set('n', '<Leader>b', require('fzf-lua').oldfiles, opts)
 vim.api.nvim_command([[
   autocmd FileType go nmap <buffer> <F3> :GoTestFunc<CR>
   autocmd FileType go nmap <buffer> <F2> :GoCoverage -p <CR>
-  autocmd FileType go nmap <buffer> <F7> :DapToggleBreakpoint<CR>
+  autocmd FileType go nmap <buffer> <F5> :DapToggleBreakpoint<CR>
+  autocmd FileType go nmap <buffer> <F7> :DapStepInto<CR>
+  autocmd FileType go nmap <buffer> <F8> :DapStepOver<CR>
+  autocmd FileType go nmap <buffer> <F9> :DapStepOut<CR>
   autocmd FileType go nmap <buffer> <F12> :DapUiToggle<CR>:DapContinue<CR>
 ]])
 
