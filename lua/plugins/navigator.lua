@@ -49,8 +49,11 @@ return {
 		})
     end,
 		dependencies = {
-			{ 'ray-x/go.nvim' },
 			{ 'neovim/nvim-lspconfig' },
+			{ 
+        'ray-x/go.nvim',
+        opts = {},
+      },
 			{ 
         'ray-x/guihua.lua', 
         build = 'cd lua/fzy && make',

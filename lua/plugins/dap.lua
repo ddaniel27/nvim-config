@@ -4,7 +4,6 @@ return {
 		config = function() 
 			local dap_go = require('dap-go')
 			local dap = require('dap')
-			local dap_ui = require('dapui')
 
 			-- For Go setup
 			dap_go.setup()
@@ -62,35 +61,35 @@ return {
 				host = '127.0.0.1',
 				port = '2346'
 			}
-
-			-- UI setup
-			dap_ui.setup({
-				layouts = {
-					{
-						elements = {
-							{
-								id = 'scopes',
-								size = 0.35
-							},
-							{
-								id = 'breakpoints',
-								size = 0.30,
-							},
-							{
-								id = 'repl',
-								size = 0.35,
-							},
-						},
-						position = 'right',
-						size = 50,
-					},
-				},
-			})
 		end,
 		dependencies = {
 			{ 'mfussenegger/nvim-dap' },
-			{ 'rcarriga/nvim-dap-ui' },
 			{ 'nvim-neotest/nvim-nio' },
+			{ 
+        'rcarriga/nvim-dap-ui',
+        opts = {
+          layouts = {
+            {
+              elements = {
+                {
+                  id = 'scopes',
+                  size = 0.35
+                },
+                {
+                  id = 'breakpoints',
+                  size = 0.30,
+                },
+                {
+                  id = 'repl',
+                  size = 0.35,
+                },
+              },
+              position = 'right',
+              size = 50,
+            },
+          },
+        },
+      },
 		},
 	}
 }
