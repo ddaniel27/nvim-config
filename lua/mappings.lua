@@ -37,17 +37,25 @@ set('n', '<Leader>P', require('fzf-lua').grep_project, opts)
 set('n', '<Leader>b', require('fzf-lua').oldfiles, opts)
 
 -- Mapeos específicos de Go (usando autocmd)
-vim.api.nvim_command([[
-  autocmd FileType go nmap <buffer> <F3> :GoTestFunc<CR>
-  autocmd FileType go nmap <buffer> <F2> :GoCoverage -p <CR>
-  autocmd FileType go nmap <buffer> <F5> :DapToggleBreakpoint<CR>
-  autocmd FileType go nmap <buffer> <F7> :DapStepInto<CR>
-  autocmd FileType go nmap <buffer> <F8> :DapStepOver<CR>
-  autocmd FileType go nmap <buffer> <F9> :DapStepOut<CR>
-  autocmd FileType go nmap <buffer> <F12> :DapUiToggle<CR>:DapContinue<CR>
-]])
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'go',
+  callback = function()
+    local opts = { buffer = true }
+    set('n', '<F3>', ':GoTestFunc<CR>', opts)
+    set('n', '<F2>', ':GoCoverage -p<CR>', opts)
+    set('n', '<F5>', ':DapToggleBreakpoint<CR>', opts)
+    set('n', '<F7>', ':DapStepInto<CR>', opts)
+    set('n', '<F8>', ':DapStepOver<CR>', opts)
+    set('n', '<F9>', ':DapStepOut<CR>', opts)
+    set('n', '<F12>', ':DapUiToggle<CR>:DapContinue<CR>', opts)
+  end,
+})
 
 -- Mapeos específicos de Tex (usando autocmd)
-vim.api.nvim_command([[
-  autocmd FileType tex nmap <buffer> <F3> :VimtexCompile<CR>
-]])
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'tex',
+  callback = function()
+    local opts = { buffer = true }
+    set('n', '<F3>', ':VimtexCompile<CR>', opts)
+  end,
+})

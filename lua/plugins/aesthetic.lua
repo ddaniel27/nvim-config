@@ -1,7 +1,7 @@
 return {
 	{ 
 		'xiyaowong/transparent.nvim',
-		run = ':TransparentEnable',
+		build = ':TransparentEnable',
 	},
 	{ 
     'karb94/neoscroll.nvim',
