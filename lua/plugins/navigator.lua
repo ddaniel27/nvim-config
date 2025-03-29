@@ -19,16 +19,6 @@ return {
             func = require('navigator.definition').definition,
             desc = 'definition',
           },
-          {
-            key = 'gp',
-            func = require('navigator.definition').definition_preview,
-            desc = 'preview definition',
-          },
-          {
-            key = 'gP',
-            func = require('navigator.definition').type_definition_preview,
-            desc = 'preview type definition',
-          },
         },
         lsp = {
           format_on_save = false,
