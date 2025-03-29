@@ -19,6 +19,8 @@ return {
           ['<CR>'] = { 'accept_and_enter', 'fallback' },
           ['<C-j>'] = { 'select_next' },
           ['<C-k>'] = { 'select_prev' },
+          ['<Tab>'] = { 'insert_next' },
+          ['<S-Tab>'] = { 'insert_prev' },
         },
       },
 

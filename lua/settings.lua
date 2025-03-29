@@ -16,6 +16,9 @@ vim.opt.showtabline = 2
 vim.opt.background = 'dark'
 vim.opt.mouse = ''
 
+-- Disable copilot by default
+vim.g.copilot_enabled = false
+
 vim.cmd('colorscheme eldritch')
 vim.cmd('syntax enable')
 require('transparent').clear_prefix('NvimTree')
