@@ -43,6 +43,22 @@ return {
 				},
 			})
 
+			-- For LEA (macOS)
+			table.insert(dap.configurations.go, {
+				type = 'delvelea',
+				name = 'LEA LOCAL debugging',
+				mode = 'remote',
+				request = 'attach',
+			})
+
+			-- For BFF (macOS)
+			table.insert(dap.configurations.go, {
+				type = 'delvebff',
+				name = 'BFF CONTAINER debugging',
+				mode = 'remote',
+				request = 'attach',
+			})
+
 			-- Adapters setup
 			dap.adapters.delve = {
 				type = 'server',

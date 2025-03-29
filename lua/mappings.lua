@@ -57,5 +57,6 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function()
     local opts = { buffer = true }
     set('n', '<F3>', ':VimtexCompile<CR>', opts)
+    set('n', '\\lbi', 'o\\begin{itemize}\n\\end{itemize}<Esc>O\\item <Esc>', opts)
   end,
 })
