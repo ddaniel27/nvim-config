@@ -15,9 +15,9 @@ return {
             desc = 'highlight symbol',
           },
           {
-            key = 'gd',
-            func = require('navigator.definition').definition,
-            desc = 'definition',
+            key = 'gi',
+            func = require('navigator.implementation').implementation_call(),
+            desc = 'implementation',
           },
         },
         lsp = {
