@@ -20,14 +20,12 @@ return {
             desc = 'implementation',
           },
         },
+        lsp_signature_help = false,
         lsp = {
-          format_on_save = false,
-          code_action = {
-            enable = true,
-          },
           code_lens_action = {
             enable = false,
           },
+          format_on_save = false,
           gopls = {
             settings = {
               gopls = {
