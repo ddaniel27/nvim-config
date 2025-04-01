@@ -16,7 +16,7 @@ return {
           },
           {
             key = 'gi',
-            func = require('navigator.implementation').implementation_call(),
+            func = require('navigator.implementation').implementation_call,
             desc = 'implementation',
           },
         },
