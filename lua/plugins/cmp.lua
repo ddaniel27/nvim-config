@@ -16,6 +16,12 @@ return {
         completion = { menu = { auto_show = true } },
         keymap = {
           preset = 'cmdline',
+          ['<Tab>'] = {
+            function(cmp)
+              if cmp.is_ghost_text_visible() and not cmp.is_menu_visible() then return cmp.accept() end
+            end,
+            'select_and_accept',
+          },
           ['<C-j>'] = { 'select_next' },
           ['<C-k>'] = { 'select_prev' },
         },
