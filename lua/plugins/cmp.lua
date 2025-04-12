@@ -5,6 +5,7 @@ return {
 
     version = '1.*',
     opts = {
+      enabled = function() return not vim.tbl_contains({ "dap-repl" }, vim.bo.filetype) end,
       keymap = { 
         preset = 'none',
         ['<CR>'] = { 'select_and_accept', 'fallback' },
