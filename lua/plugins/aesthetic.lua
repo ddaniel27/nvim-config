@@ -34,10 +34,13 @@ return {
         tail = 'TabLine',
       }
 
+      local sysname = vim.loop.os_uname().sysname
+      local os_icon = sysname == 'Linux' and '' or (sysname == 'Darwin' and '' or '')
+
 			require('tabby.tabline').set(function(line)
 				return {
 					{
-						{ ' 󰣇 ', hl = theme.head },
+						{ ' ' ..os_icon.. ' ', hl = theme.head },
 					},
 					line.tabs().foreach(function(tab)
 						local hl = tab.is_current() and theme.current_tab or theme.tab
