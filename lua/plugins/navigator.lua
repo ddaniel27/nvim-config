@@ -14,6 +14,11 @@ return {
             func = require('navigator.dochighlight').hi_symbol,
             desc = 'highlight symbol',
           },
+          {
+            key = 'gd',
+            func = require('navigator.definition').definition,
+            desc = 'definition',
+          }
         },
         lsp_signature_help = false,
         lsp = {
