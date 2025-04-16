@@ -5,6 +5,15 @@ return {
 			local dap_go = require('dap-go')
 			local dap = require('dap')
 
+      vim.api.nvim_set_hl(0, "sage_green", {
+        fg = "#88B378",
+        bg = "NONE",
+        bold = true,
+      })
+
+      vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'sage_green', linehl = '', numhl = '' })
+      vim.fn.sign_define('DapStopped',   { text = '', texthl = 'sage_green', linehl = '', numhl = '' })
+
 			-- For Go setup
 			dap_go.setup()
 
