@@ -47,11 +47,11 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function()
     local opts = { buffer = true }
     set('n', '<F3>', ':GoTestFunc<CR>', opts)
-    set('n', '<F2>', ':GoCoverage -p<CR>', opts)
     set('n', '<F5>', ':DapToggleBreakpoint<CR>', opts)
     set('n', '<F7>', ':DapStepInto<CR>', opts)
     set('n', '<F8>', ':DapStepOver<CR>', opts)
     set('n', '<F9>', ':DapStepOut<CR>', opts)
+    set('n', '<F11>', ':DapContinue<CR>', opts)
     set('n', '<F12>', ':DapUiToggle<CR>:DapContinue<CR>', opts)
   end,
 })
