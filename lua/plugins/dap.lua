@@ -54,7 +54,7 @@ return {
 			-- For BFF (macOS)
 			table.insert(dap.configurations.go, {
 				type = 'delvebff',
-				name = 'BFF CONTAINER debugging',
+				name = 'BFF LOCAL debugging',
 				mode = 'remote',
 				request = 'attach',
 			})
