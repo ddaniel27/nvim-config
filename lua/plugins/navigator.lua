@@ -7,7 +7,7 @@ return {
           {
             key = '<Leader><c-k>',
             func = vim.lsp.buf.signature_help,
-            desc = 'test',
+            desc = 'signature help',
           },
           {
             key = '<Leader>+',
@@ -18,14 +18,15 @@ return {
             key = 'gd',
             func = require('navigator.definition').definition,
             desc = 'definition',
-          }
+          },
         },
         lsp_signature_help = false,
         lsp = {
-          code_lens_action = {
-            enable = false,
-          },
+          document_highlight = false,
           format_on_save = false,
+          code_lens_action = { enable = false, },
+          diagnostic = { virtual_text = false },
+          hover = { enable = true },
           gopls = {
             settings = {
               gopls = {
@@ -49,7 +50,9 @@ return {
 			{ 'neovim/nvim-lspconfig' },
 			{ 
         'ray-x/go.nvim',
-        opts = {},
+        opts = {
+          lsp_cfg = {}
+        },
       },
 			{ 
         'ray-x/guihua.lua', 
