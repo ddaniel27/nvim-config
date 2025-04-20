@@ -45,7 +45,6 @@ set('i', '<C-a>', ToggleCopilot, opts)
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'go',
   callback = function()
-    local opts = { buffer = true, silent = true }
     set('n', '<F3>', ':GoTestFunc<CR>', opts)
     set('n', '<F5>', ':DapToggleBreakpoint<CR>', opts)
     set('n', '<F7>', ':DapStepInto<CR>', opts)

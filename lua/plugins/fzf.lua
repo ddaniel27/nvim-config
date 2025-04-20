@@ -26,6 +26,11 @@ return {
 					['enter'] = actions.file_tabedit,
 				},
 			},
+      keymap = {
+        fzf = {
+          ['ctrl-e'] = 'abort',
+        },
+      },
 		})
     end,
 		dependencies = {

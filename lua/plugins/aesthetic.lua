@@ -1,4 +1,6 @@
 return {
+	{ 'eldritch-theme/eldritch.nvim' },
+	{ 'nyoom-engineering/oxocarbon.nvim' },
 	{ 
 		'xiyaowong/transparent.nvim',
 		build = ':TransparentEnable',
