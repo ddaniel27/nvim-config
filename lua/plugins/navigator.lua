@@ -1,3 +1,5 @@
+local border_style = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' }
+
 return {
 	{
 		'ray-x/navigator.lua',
@@ -9,6 +11,17 @@ return {
             func = vim.lsp.buf.signature_help,
             desc = 'signature help',
           },
+          -- when I figure out which keys I'll want here
+          -- {
+          --   key = '<M-k>',
+          --   func = function()
+          --     vim.lsp.buf.signature_help({
+          --       border = border_style
+          --     })
+          --   end,
+          --   desc = 'signature help',
+          --   mode = 'i',
+          -- },
           {
             key = '<Leader>+',
             func = require('navigator.dochighlight').hi_symbol,
@@ -23,7 +36,7 @@ return {
             key = 'K',
             func = function()
               vim.lsp.buf.hover({
-                border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' }
+                border = border_style
               })
             end,
             desc = 'hover'

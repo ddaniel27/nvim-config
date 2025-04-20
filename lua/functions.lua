@@ -20,8 +20,8 @@ function ToggleCopilot()
     vim.g.copilot_enabled = not current_value
 
     if vim.g.copilot_enabled then
-      print("Copilot Enabled")
+      print('Copilot Enabled')
     else
-      print("Copilot Disabled")
+      print('Copilot Disabled')
     end
 end
