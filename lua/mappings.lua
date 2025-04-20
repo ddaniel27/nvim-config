@@ -17,7 +17,7 @@ set('n', '<C-j>', '<C-w>j', opts)
 set('n', '<C-k>', '<C-w>k', opts)
 set('n', '<C-l>', '<C-w>l', opts)
 set('n', 'ZA', ':tabo<CR>', opts)
-set('t', '<Esc><Esc>', '<C-\\><C-n>', opts)
+set('t', '<C-[><C-[>', '<C-\\><C-n>', opts)
 
 -- Mapeos Tabby
 set('n', '<C-x>', ':tabn<CR>', opts)

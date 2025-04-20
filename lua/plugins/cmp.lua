@@ -5,7 +5,7 @@ return {
 
     version = '1.*',
     opts = {
-      enabled = function() return not vim.tbl_contains({ "dap-repl" }, vim.bo.filetype) end,
+      enabled = function() return not vim.tbl_contains({ 'dap-repl' }, vim.bo.filetype) end,
       keymap = { 
         preset = 'none',
         ['<CR>'] = { 'select_and_accept', 'fallback' },
@@ -28,9 +28,7 @@ return {
         },
       },
 
-      appearance = {
-        nerd_font_variant = 'mono'
-      },
+      appearance = { nerd_font_variant = 'mono' },
 
       completion = { 
         menu = { scrollbar = false },
@@ -44,13 +42,13 @@ return {
         default = { 'lsp', 'path', 'snippets', 'buffer' },
       },
 
-      fuzzy = { implementation = "prefer_rust_with_warning" },
+      fuzzy = { implementation = 'prefer_rust_with_warning' },
     },
-    opts_extend = { "sources.default" },
+    opts_extend = { 'sources.default' },
   },
   {
     'windwp/nvim-autopairs',
-    event = "InsertEnter",
+    event = 'InsertEnter',
     config = true
   },
 }
