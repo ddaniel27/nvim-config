@@ -19,6 +19,15 @@ return {
             func = require('navigator.definition').definition,
             desc = 'definition',
           },
+          {
+            key = 'K',
+            func = function()
+              vim.lsp.buf.hover({
+                border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' }
+              })
+            end,
+            desc = 'hover'
+          }
         },
         lsp_signature_help = false,
         lsp = {
@@ -26,6 +35,7 @@ return {
           format_on_save = false,
           code_lens_action = { enable = false, },
           diagnostic = { virtual_text = false },
+          hover = { enable = false },
           gopls = {
             settings = {
               gopls = {
