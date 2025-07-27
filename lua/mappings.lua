@@ -19,9 +19,6 @@ set('n', '<C-l>', '<C-w>l', opts)
 set('n', 'ZA', ':tabo<CR>', opts)
 set('t', '<C-[><C-[>', '<C-\\><C-n>', opts)
 
--- Mapeos LSP
-set('n', 'grn', ':lua vim.lsp.buf.rename()<CR>', opts)
-
 -- Mapeos Tabby
 set('n', '<C-x>', ':tabn<CR>', opts)
 set('n', '<C-z>', ':tabp<CR>', opts)
@@ -48,6 +45,7 @@ set('i', '<C-a>', ToggleCopilot, opts)
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'go',
   callback = function()
+    set('n', '<F1>', ':GoAlt<CR>', opts)
     set('n', '<F3>', ':GoTestFunc<CR>', opts)
     set('n', '<F5>', ':DapToggleBreakpoint<CR>', opts)
     set('n', '<F7>', ':DapStepInto<CR>', opts)

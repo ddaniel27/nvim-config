@@ -23,6 +23,37 @@ return {
             desc = 'async_ref',
           },
           { 
+            key = 'grn',
+            func = vim.lsp.buf.rename,
+            desc = 'rename',
+          },
+          { 
+            key = ']d',
+            func = require('navigator.diagnostics').goto_next,
+            desc = 'next diagnostics error or fallback',
+          },
+          { 
+            key = '[d',
+            func = require('navigator.diagnostics').goto_prev,
+            desc = 'prev diagnostics error or fallback',
+          },
+          { 
+            key = ']r',
+            func = require('navigator.treesitter').goto_next_usage,
+            desc = 'goto_next_usage',
+          },
+          { 
+            key = '[r',
+            func = require('navigator.treesitter').goto_previous_usage,
+            desc = 'goto_previous_usage',
+          },
+          { 
+            key = '<Space>ca',
+            func = require('navigator.codeAction').code_action,
+            desc = 'code_action',
+            mode = { 'n', 'v' },
+          },
+          { 
             key = 'gp',
             func = require('navigator.definition').definition_preview,
             desc = 'definition_preview',
