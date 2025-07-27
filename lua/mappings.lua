@@ -5,7 +5,7 @@ local opts = { noremap = true, silent = true }
 -- Establecer el líder de mapa a un espacio
 vim.g.mapleader = ' '
 
--- Mapeos generales
+-- Mapeos buf/win manager
 set('n', '<Leader>l', ':nohlsearch<CR>', opts)
 set('n', '<Leader>t', ':tabnew term://zsh<CR>A', opts)
 set('n', '<A-h>', '<C-W><', opts)
@@ -18,6 +18,9 @@ set('n', '<C-k>', '<C-w>k', opts)
 set('n', '<C-l>', '<C-w>l', opts)
 set('n', 'ZA', ':tabo<CR>', opts)
 set('t', '<C-[><C-[>', '<C-\\><C-n>', opts)
+
+-- Mapeos LSP
+set('n', 'grn', ':lua vim.lsp.buf.rename()<CR>', opts)
 
 -- Mapeos Tabby
 set('n', '<C-x>', ':tabn<CR>', opts)

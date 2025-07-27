@@ -5,38 +5,43 @@ return {
 		'ray-x/navigator.lua',
     config = function()
       require('navigator').setup({
+        default_mapping = false,
         keymaps = {
-          {
-            key = '<Leader><c-k>',
-            func = vim.lsp.buf.signature_help,
-            desc = 'signature help',
-          },
-          -- when I figure out which keys I'll want here
-          -- {
-          --   key = '<M-k>',
-          --   func = function()
-          --     vim.lsp.buf.signature_help({
-          --       border = border_style
-          --     })
-          --   end,
-          --   desc = 'signature help',
-          --   mode = 'i',
-          -- },
-          {
-            key = '<Leader>+',
-            func = require('navigator.dochighlight').hi_symbol,
-            desc = 'highlight symbol',
-          },
           {
             key = 'gd',
             func = require('navigator.definition').definition,
             desc = 'definition',
           },
           {
+            key = 'gi',
+            func = require('navigator.implementation').implementation,
+            desc = 'implementation',
+          },
+          { 
+            key = 'grr',
+            func = require('navigator.reference').async_ref,
+            desc = 'async_ref',
+          },
+          { 
+            key = 'gp',
+            func = require('navigator.definition').definition_preview,
+            desc = 'definition_preview',
+          },
+          { 
+            key = 'gP',
+            func =  require('navigator.definition').type_definition_preview,
+            desc = 'type_definition_preview',
+          },
+          { 
+            key = '<Leader>gi',
+            func = require('navigator.hierarchy').incoming_calls,
+            desc = 'incoming_calls',
+          },
+          {
             key = 'K',
             func = function()
               vim.lsp.buf.hover({
-                border = border_style
+                border = border_style,
               })
             end,
             desc = 'hover'
@@ -49,22 +54,6 @@ return {
           code_lens_action = { enable = false, },
           diagnostic = { virtual_text = false },
           hover = { enable = false },
-          gopls = {
-            settings = {
-              gopls = {
-                usePlaceholders = false,
-              },
-            },
-          },
-          rust_analyzer = {
-            settings = {
-              ['rust-analyzer'] = {
-                diagnostics = {
-                  disabled = { 'unlinked-file' },
-                },
-              }
-            }
-          },
         },
 		})
     end,
@@ -73,7 +62,14 @@ return {
 			{ 
         'ray-x/go.nvim',
         opts = {
-          lsp_cfg = {}
+          lsp_cfg = {
+            settings = {
+              gopls = {
+                usePlaceholders = false,
+              },
+            },
+          },
+          lsp_keymaps = false,
         },
       },
 			{ 
