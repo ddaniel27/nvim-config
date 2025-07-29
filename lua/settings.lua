@@ -26,6 +26,7 @@ vim.cmd('syntax enable')
 require('transparent').clear_prefix('NvimTree')
 require('transparent').clear_prefix('NormalFloat')
 require('transparent').clear_prefix('FloatBorder')
+require('transparent').clear_prefix('FzfLua')
 
 
 -- Green symbols (new lines)
