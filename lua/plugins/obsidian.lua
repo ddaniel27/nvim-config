@@ -1,12 +1,12 @@
-local root_path = vim.fn.expand "~" .. "/personal/vaults/"
-local default_workspace = root_path .. "MHEducation"
+local root_path = vim.fn.expand "~" .. "/personal/vaults"
+local default_workspace = root_path .. "/MHEducation"
 
 return {
   "obsidian-nvim/obsidian.nvim",
   version = "*",
   event = {
-    "BufReadPre " .. root_path .. "*.md",
-    "BufNewFile " .. root_path .. "*.md",
+    "BufReadPre " .. root_path .. "/*.md",
+    "BufNewFile " .. root_path .. "/*.md",
   }, 
   opts = {
     daily_notes = {
@@ -19,11 +19,11 @@ return {
     workspaces = {
       {
         name = "MHEducation",
-        path = root_path .. "MHEducation",
+        path = root_path .. "/MHEducation",
       },
       {
         name = "ideas",
-        path = root_path .. "ideas",
+        path = root_path .. "/ideas",
       },
     },
     completion = {
@@ -47,5 +47,6 @@ return {
   },
 
   -- Custom type to export
+  root_path = root_path,
   default_workspace = default_workspace,
 }

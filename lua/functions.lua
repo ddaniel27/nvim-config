@@ -30,4 +30,5 @@ end
 
 vim.api.nvim_create_user_command('Obsidian', function()
   vim.cmd("cd " .. obsidian_config.default_workspace)
+  vim.cmd("edit " .. obsidian_config.default_workspace .. "/tickets/Tickets.md")
 end, {})

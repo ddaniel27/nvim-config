@@ -15,7 +15,7 @@ return {
 			},
       file_ignore_patterns = {
         "node_modules/",
-        ".obsidian",
+        ".obsidian/",
       },
 			fzf_opts = {
 				['--layout'] = 'reverse',
