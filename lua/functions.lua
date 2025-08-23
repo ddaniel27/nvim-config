@@ -1,3 +1,5 @@
+local obsidian_config = require("plugins.obsidian")
+
 vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('yank_highlight', {}),
   pattern = '*',
@@ -25,3 +27,7 @@ function ToggleCopilot()
       print('Copilot Disabled')
     end
 end
+
+vim.api.nvim_create_user_command('Obsidian', function()
+  vim.cmd("cd " .. obsidian_config.default_workspace)
+end, {})

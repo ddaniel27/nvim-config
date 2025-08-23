@@ -20,11 +20,11 @@ return {
 			-- For container debugging (linux)
 			table.insert(dap.configurations.go, {
 				type = 'delve',
-				name = 'Container debugging (/wd:34567)',
+				name = 'Container debugging (/app:2345)',
 				mode = 'remote',
 				request = 'attach',
 				substitutePath = {
-					{ from = '${workspaceFolder}', to = '/wd' },
+					{ from = '${workspaceFolder}', to = '/app' },
 				},
 			})
 
@@ -72,7 +72,7 @@ return {
 			dap.adapters.delve = {
 				type = 'server',
 				host = 'localhost',
-				port = '34567'
+				port = '2345'
 			}
 
 			dap.adapters.delvelea = {

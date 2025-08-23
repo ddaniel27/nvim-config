@@ -13,6 +13,10 @@ return {
 					hidden = 'hidden',
 				},
 			},
+      file_ignore_patterns = {
+        "node_modules/",
+        ".obsidian",
+      },
 			fzf_opts = {
 				['--layout'] = 'reverse',
 			},
