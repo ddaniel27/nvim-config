@@ -33,7 +33,15 @@ return {
     picker = {
       name = "fzf-lua",
     },
-    
+    templates = {
+      folder = "templates",
+    },
+
+    -- note related funcs
+    note_id_func = function(title)
+      return title
+    end,
+
     callbacks = {
       post_set_workspace = function(workspace)
         local cwd = vim.fn.getcwd()
