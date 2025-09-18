@@ -17,6 +17,18 @@ return {
 			-- For Go setup
 			dap_go.setup()
 
+      -- For CDAPI (macOS)
+      table.insert(dap.configurations.go, {
+        type = 'delvelea',
+        name = 'CDAPI CONTAINER debugging',
+        mode = 'remote',
+        request = 'attach',
+        substitutePath = {
+          { from = '/opt/homebrew/Cellar/go/1.23.1/libexec', to = '/usr/local/go'},
+          { from = '${workspaceFolder}', to = '/go/src/github.mheducation.com/MHEducation/dle-course-delivery-api' },
+        },
+      })
+
 			-- For container debugging (linux)
 			table.insert(dap.configurations.go, {
 				type = 'delve',
