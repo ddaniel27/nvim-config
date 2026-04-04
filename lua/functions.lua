@@ -28,7 +28,14 @@ function ToggleCopilot()
     end
 end
 
+-- Function to open obsidia with command
 vim.api.nvim_create_user_command('Obsidian', function()
+  -- to use in other machines
+  local path = "/tickets/Tickets.md"
+  if vim.env.MACHINE_ENV == "personal" then
+    path = "/todo/TO-DO.md"
+  end
+
   vim.cmd("cd " .. obsidian_config.default_workspace)
-  vim.cmd("edit " .. obsidian_config.default_workspace .. "/tickets/Tickets.md")
+  vim.cmd("edit " .. obsidian_config.default_workspace .. path)
 end, {})

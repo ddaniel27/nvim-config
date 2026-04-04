@@ -85,6 +85,15 @@ return {
           code_lens_action = { enable = false, },
           diagnostic = { virtual_text = false },
           hover = { enable = false },
+          zls = {
+            filetypes={"zig"},
+            settings={
+              cmd= {"zls"}
+            },
+            root_dir = function(fname)
+              return util.root_pattern('build.zig')(fname) or dirname(fname)
+            end
+          }
         },
 		})
     end,

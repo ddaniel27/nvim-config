@@ -1,5 +1,26 @@
+local config = {}
 local root_path = vim.fn.expand "~" .. "/personal/vaults"
-local default_workspace = root_path .. "/MHEducation"
+local function SetConfigValue()
+  if vim.env.MACHINE_ENV == "personal" then
+    config["default_workspace"] = root_path .. "/ideas"
+    config["workspaces"] = {
+      {
+        name = "ideas",
+        path = root_path .. "/ideas",
+      }
+    }
+  else
+    config["default_workspace"] = root_path .. "/MHEducation"
+    config["workspaces"] = {
+      {
+        name = "MHEducation",
+        path = root_path .. "/MHEducation",
+      }
+    }
+  end
+end
+
+SetConfigValue()
 
 return {
   "obsidian-nvim/obsidian.nvim",
@@ -16,16 +37,7 @@ return {
       enable = false,
     },
     legacy_commands = false,
-    workspaces = {
-      {
-        name = "MHEducation",
-        path = root_path .. "/MHEducation",
-      },
-      {
-        name = "ideas",
-        path = root_path .. "/ideas",
-      },
-    },
+    workspaces = config["workspaces"],
     completion = {
       nvim_cmp = false,
       blink = true,
@@ -56,5 +68,5 @@ return {
 
   -- Custom type to export
   root_path = root_path,
-  default_workspace = default_workspace,
+  default_workspace = config["default_workspace"],
 }

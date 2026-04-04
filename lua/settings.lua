@@ -23,10 +23,12 @@ vim.lsp.inlay_hint.enable(false)
 vim.cmd('colorscheme eldritch')
 vim.cmd('syntax enable')
 
-require('transparent').clear_prefix('NvimTree')
-require('transparent').clear_prefix('NormalFloat')
-require('transparent').clear_prefix('FloatBorder')
-require('transparent').clear_prefix('FzfLua')
+if vim.env.MACHINE_ENV ~= "personal" then
+  require('transparent').clear_prefix('NvimTree')
+  require('transparent').clear_prefix('NormalFloat')
+  require('transparent').clear_prefix('FloatBorder')
+  require('transparent').clear_prefix('FzfLua')
+end
 
 
 -- Green symbols (new lines)
