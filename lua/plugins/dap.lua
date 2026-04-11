@@ -97,14 +97,25 @@ local function PersonalDapConfig()
 			}
 end
 
--- TODO: rewritte this to be more generic
+local function load_go_config()
+  local dap_go = require('dap-go')
+
+  -- For Go setup
+  dap_go.setup()
+
+  -- Dap setups
+  if vim.env.MACHINE_ENV == 'personal' then
+    PersonalDapConfig()
+  else
+    WorkDapConfig()
+  end
+end
+
 return {
 	{
-		'leoluz/nvim-dap-go',
+    'mfussenegger/nvim-dap',
     lazy=true,
-		config = function() 
-			local dap_go = require('dap-go')
-
+    config = function()
       -- Update signs for better visuals
       vim.api.nvim_set_hl(0, 'sage_green', {
         fg = '#88B378',
@@ -120,18 +131,15 @@ return {
         { text = '', texthl = 'sage_green', linehl = '', numhl = '' }
       )
 
-			-- For Go setup
-			dap_go.setup()
-
-      -- Dap setups
-      if vim.env.MACHINE_ENV == 'personal' then
-        PersonalDapConfig()
-      else
-        WorkDapConfig()
+      -- config for specific languages
+      local current_filetype = vim.bo.filetype
+      if  current_filetype == 'go' then
+        load_go_config()
       end
-		end,
+
+    end,
 		dependencies = {
-			{ 'mfussenegger/nvim-dap' },
+      { 'leoluz/nvim-dap-go' },
 			{ 'nvim-neotest/nvim-nio' },
 			{ 
         'rcarriga/nvim-dap-ui',
