@@ -1,4 +1,4 @@
-local obsidian_config = require("plugins.obsidian")
+local obsidian_config = require('plugins.obsidian')
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('yank_highlight', {}),
@@ -31,11 +31,11 @@ end
 -- Function to open obsidia with command
 vim.api.nvim_create_user_command('Obsidian', function()
   -- to use in other machines
-  local path = "/tickets/Tickets.md"
-  if vim.env.MACHINE_ENV == "personal" then
-    path = "/todo/TO-DO.md"
+  local path = '/tickets/Tickets.md'
+  if vim.env.MACHINE_ENV == 'personal' then
+    path = '/todo/TO-DO.md'
   end
 
-  vim.cmd("cd " .. obsidian_config.default_workspace)
-  vim.cmd("edit " .. obsidian_config.default_workspace .. path)
+  vim.cmd('cd ' .. obsidian_config.default_workspace)
+  vim.cmd('edit ' .. obsidian_config.default_workspace .. path)
 end, {})

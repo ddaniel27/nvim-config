@@ -101,13 +101,14 @@ end
 return {
 	{
 		'leoluz/nvim-dap-go',
+    lazy=true,
 		config = function() 
 			local dap_go = require('dap-go')
 
       -- Update signs for better visuals
-      vim.api.nvim_set_hl(0, "sage_green", {
-        fg = "#88B378",
-        bg = "NONE",
+      vim.api.nvim_set_hl(0, 'sage_green', {
+        fg = '#88B378',
+        bg = 'NONE',
         bold = true,
       })
       vim.fn.sign_define(
@@ -123,12 +124,11 @@ return {
 			dap_go.setup()
 
       -- Dap setups
-      if vim.env.MACHINE_ENV == "personal" then
+      if vim.env.MACHINE_ENV == 'personal' then
         PersonalDapConfig()
       else
         WorkDapConfig()
       end
-
 		end,
 		dependencies = {
 			{ 'mfussenegger/nvim-dap' },

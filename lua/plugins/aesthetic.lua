@@ -1,6 +1,6 @@
 return {
   {
-    "eldritch-theme/eldritch.nvim",
+    'eldritch-theme/eldritch.nvim',
     opts = {},
   },
 	{ 'nyoom-engineering/oxocarbon.nvim' },

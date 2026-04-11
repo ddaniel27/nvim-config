@@ -86,9 +86,9 @@ return {
           diagnostic = { virtual_text = false },
           hover = { enable = false },
           zls = {
-            filetypes={"zig"},
+            filetypes={'zig'},
             settings={
-              cmd= {"zls"}
+              cmd= {'zls'}
             },
             root_dir = function(fname)
               return util.root_pattern('build.zig')(fname) or dirname(fname)

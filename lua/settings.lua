@@ -23,7 +23,7 @@ vim.lsp.inlay_hint.enable(false)
 vim.cmd('colorscheme eldritch')
 vim.cmd('syntax enable')
 
-if vim.env.MACHINE_ENV ~= "personal" then
+if vim.env.MACHINE_ENV ~= 'personal' then
   require('transparent').clear_prefix('NvimTree')
   require('transparent').clear_prefix('NormalFloat')
   require('transparent').clear_prefix('FloatBorder')

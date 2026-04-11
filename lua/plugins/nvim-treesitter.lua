@@ -1,15 +1,10 @@
 return {
+  -- Still needed?
 	{
 		'nvim-treesitter/nvim-treesitter',
-		config = function ()
-			require 'nvim-treesitter.install'.compilers = { 'clang' }
-			require('nvim-treesitter.configs').setup{
-				auto_install = false,
-				highlight = {
-					enable = true,
-				},
-			}
-		end,
+    branch = 'main',
+    lazy = false,
+    opts = {},
 		build = ':TSUpdate',
-	}
+	},
 }

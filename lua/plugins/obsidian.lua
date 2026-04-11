@@ -1,20 +1,20 @@
 local config = {}
-local root_path = vim.fn.expand "~" .. "/personal/vaults"
+local root_path = vim.fn.expand '~' .. '/personal/vaults'
 local function SetConfigValue()
-  if vim.env.MACHINE_ENV == "personal" then
-    config["default_workspace"] = root_path .. "/ideas"
-    config["workspaces"] = {
+  if vim.env.MACHINE_ENV == 'personal' then
+    config['default_workspace'] = root_path .. '/ideas'
+    config['workspaces'] = {
       {
-        name = "ideas",
-        path = root_path .. "/ideas",
+        name = 'ideas',
+        path = root_path .. '/ideas',
       }
     }
   else
-    config["default_workspace"] = root_path .. "/MHEducation"
-    config["workspaces"] = {
+    config['default_workspace'] = root_path .. '/MHEducation'
+    config['workspaces'] = {
       {
-        name = "MHEducation",
-        path = root_path .. "/MHEducation",
+        name = 'MHEducation',
+        path = root_path .. '/MHEducation',
       }
     }
   end
@@ -23,30 +23,30 @@ end
 SetConfigValue()
 
 return {
-  "obsidian-nvim/obsidian.nvim",
-  version = "*",
+  'obsidian-nvim/obsidian.nvim',
+  version = '*',
   event = {
-    "BufReadPre " .. root_path .. "/*.md",
-    "BufNewFile " .. root_path .. "/*.md",
+    'BufReadPre ' .. root_path .. '/*.md',
+    'BufNewFile ' .. root_path .. '/*.md',
   }, 
   opts = {
     daily_notes = {
-      folder = "notes/dailies",
+      folder = 'notes/dailies',
     },
     ui = {
       enable = false,
     },
     legacy_commands = false,
-    workspaces = config["workspaces"],
+    workspaces = config['workspaces'],
     completion = {
       nvim_cmp = false,
       blink = true,
     },
     picker = {
-      name = "fzf-lua",
+      name = 'fzf-lua',
     },
     templates = {
-      folder = "templates",
+      folder = 'templates',
     },
 
     -- note related funcs
@@ -60,7 +60,7 @@ return {
         local target = workspace.path.filename
 
         if cwd ~= target then
-          vim.cmd("cd " .. target)
+          vim.cmd('cd ' .. target)
         end
       end,
     },
@@ -68,5 +68,5 @@ return {
 
   -- Custom type to export
   root_path = root_path,
-  default_workspace = config["default_workspace"],
+  default_workspace = config['default_workspace'],
 }
