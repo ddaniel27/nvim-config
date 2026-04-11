@@ -36,11 +36,6 @@ set('n', '<Leader>p', require('fzf-lua').files, opts)
 set('n', '<Leader>P', require('fzf-lua').grep_project, opts)
 set('n', '<Leader>b', require('fzf-lua').oldfiles, opts)
 
--- Mapeos de Copilot
-set('i', '<C-l>', '<Plug>(copilot-accept-line)', opts)
-set('i', '<C-a>', ToggleCopilot, opts)
-
-
 -- Mapeos específicos de Go (usando autocmd)
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'go',
