@@ -15,6 +15,7 @@ vim.opt.swapfile = false
 vim.opt.showtabline = 2
 vim.opt.background = 'dark'
 vim.opt.mouse = ''
+vim.o.winborder = 'rounded'
 
 -- General LSP settings
 vim.lsp.inlay_hint.enable(false)

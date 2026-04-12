@@ -2,10 +2,10 @@
 local set = vim.keymap.set
 local opts = { noremap = true, silent = true }
 --
--- Establecer el líder de mapa a un espacio
+-- Set Leader key
 vim.g.mapleader = ' '
 
--- Mapeos buf/win manager
+-- Mappings buf/win manager
 set('n', '<Leader>l', ':nohlsearch<CR>', opts)
 set('n', '<Leader>t', ':tabnew term://zsh<CR>A', opts)
 set('n', '<A-h>', '<C-W><', opts)
@@ -19,24 +19,39 @@ set('n', '<C-l>', '<C-w>l', opts)
 set('n', 'ZA', ':tabo<CR>', opts)
 set('t', '<C-[><C-[>', '<C-\\><C-n>', opts)
 
--- Mapeos Tabby
+-- Mappings Tabby
 set('n', '<C-x>', ':tabn<CR>', opts)
 set('n', '<C-z>', ':tabp<CR>', opts)
 set('n', '<Leader>k', ':+tabmove<CR>', opts)
 set('n', '<Leader>j', ':-tabmove<CR>', opts)
 
--- Mapeos NvimTree
+-- Mappings NvimTree
 set('n', '<Leader>n', ':NvimTreeFindFileToggle<CR>', opts)
 
--- Mapeo Fugitive
+-- Mappings Fugitive
 set('n', '<Leader>g<CR>', ':G<CR>', opts)
 
--- Mapeos FZF
+-- Mappings FZF
 set('n', '<Leader>p', require('fzf-lua').files, opts)
 set('n', '<Leader>P', require('fzf-lua').grep_project, opts)
 set('n', '<Leader>b', require('fzf-lua').oldfiles, opts)
 
--- Mapeos específicos de Go (usando autocmd)
+-- Mappings Navigator and LSP
+set('n', 'gd', require('navigator.definition').definition, opts)
+set('n', 'gp', require('navigator.definition').definition_preview, opts)
+set('n', 'gi', require('navigator.implementation').implementation, opts)
+set('n', 'gP', require('navigator.definition').type_definition_preview, opts)
+set('n', 'grr', require('navigator.reference').async_ref, opts)
+set('n', 'grn', vim.lsp.buf.rename, opts)
+set('n', ']d', require('navigator.diagnostics').goto_next, opts)
+set('n', '[d', require('navigator.diagnostics').goto_prev, opts)
+set('n', ']r', require('navigator.treesitter').goto_next_usage, opts)
+set('n', '[r', require('navigator.treesitter').goto_previous_usage, opts)
+set('n', '<Space>ca', require('navigator.codeAction').code_action, opts)
+set('n', '<Leader>gi', require('navigator.hierarchy').incoming_calls, opts)
+set('n', 'K', vim.lsp.buf.hover, opts)
+
+-- Mappings Go files (with autocmd)
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'go',
   callback = function()
@@ -51,7 +66,7 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- Mapeos específicos de Tex (usando autocmd)
+-- Mappings Tex files (with autocmd)
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'tex',
   callback = function()
