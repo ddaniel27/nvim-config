@@ -58,11 +58,15 @@ return {
     },
     init = function()
       vim.g.db_ui_use_nerd_fonts = 1
+
+      local dbs = {}
       if vim.env.MACHINE_ENV == 'personal' then
-        personal_db_config()
+        dbs = personal_db_config()
       else
-        work_db_config()
+        dbs = work_db_config()
       end
+
+      vim.g.dbs = dbs
     end, 
   },
 }
