@@ -1,6 +1,6 @@
 local config = {}
 local root_path = vim.fn.expand '~' .. '/personal/vaults'
-local function SetConfigValue()
+local function set_config_values()
   if vim.env.MACHINE_ENV == 'personal' then
     config['default_workspace'] = root_path .. '/ideas'
     config['workspaces'] = {
@@ -20,7 +20,7 @@ local function SetConfigValue()
   end
 end
 
-SetConfigValue()
+set_config_values()
 
 return {
   'obsidian-nvim/obsidian.nvim',

@@ -1,4 +1,4 @@
-local function WorkGoDapConfig()
+local function work_go_dap_config()
 			local dap = require('dap')
       local work_configs = {
         -- For CDAPI (macOS)
@@ -73,7 +73,7 @@ local function WorkGoDapConfig()
 			}
 end
 
-local function PersonalGoDapConfig()
+local function personal_go_dap_config()
 			local dap = require('dap')
       local personal_configs = {
         -- For local debugging (linux)
@@ -116,9 +116,9 @@ local function load_go_config()
 
   -- Dap setups
   if vim.env.MACHINE_ENV == 'personal' then
-    PersonalGoDapConfig()
+    personal_go_dap_config()
   else
-    WorkGoDapConfig()
+    work_go_dap_config()
   end
 
 end
