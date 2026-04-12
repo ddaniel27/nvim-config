@@ -1,57 +1,62 @@
-local function WorkDapConfig()
-			local dap = require('dap') -- insert dap
-
-      -- For CDAPI (macOS)
-      table.insert(dap.configurations.go, {
-        type = 'delvelea',
-        name = 'CDAPI CONTAINER debugging',
-        mode = 'remote',
-        request = 'attach',
-        substitutePath = {
-          { from = '/opt/homebrew/Cellar/go/1.23.1/libexec', to = '/usr/local/go'},
-          { from = '${workspaceFolder}', to = '/go/src/github.mheducation.com/MHEducation/dle-course-delivery-api' },
+local function WorkGoDapConfig()
+			local dap = require('dap')
+      local work_configs = {
+        -- For CDAPI (macOS)
+        {
+          type = 'delvelea',
+          name = 'CDAPI CONTAINER debugging',
+          mode = 'remote',
+          request = 'attach',
+          substitutePath = {
+            { from = '/opt/homebrew/Cellar/go/1.23.1/libexec', to = '/usr/local/go'},
+            { from = '${workspaceFolder}', to = '/go/src/github.mheducation.com/MHEducation/dle-course-delivery-api' },
+          },
         },
-      })
 
-			-- For LEA (macOS)
-			table.insert(dap.configurations.go, {
-				type = 'delvelea',
-				name = 'LEA CONTAINER debugging',
-				mode = 'remote',
-				request = 'attach',
-				substitutePath = {
-					{ from = '/opt/homebrew/Cellar/go/1.23.1/libexec', to = '/usr/local/go'},
-					{ from = '${workspaceFolder}', to = '/lxa' },
-				},
-			})
+        -- For LEA (macOS)
+        {
+          type = 'delvelea',
+          name = 'LEA CONTAINER debugging',
+          mode = 'remote',
+          request = 'attach',
+          substitutePath = {
+            { from = '/opt/homebrew/Cellar/go/1.23.1/libexec', to = '/usr/local/go'},
+            { from = '${workspaceFolder}', to = '/lxa' },
+          },
+        },
 
-			-- For BFF (macOS)
-			table.insert(dap.configurations.go, {
-				type = 'delvebff',
-				name = 'BFF CONTAINER debugging',
-				mode = 'remote',
-				request = 'attach',
-				substitutePath = {
-					{ from = '/opt/homebrew/Cellar/go/1.23.1/libexec', to = '/usr/local/go'},
-					{ from = '${workspaceFolder}', to = '/lxa' },
-				},
-			})
+        -- For BFF (macOS)
+        {
+          type = 'delvebff',
+          name = 'BFF CONTAINER debugging',
+          mode = 'remote',
+          request = 'attach',
+          substitutePath = {
+            { from = '/opt/homebrew/Cellar/go/1.23.1/libexec', to = '/usr/local/go'},
+            { from = '${workspaceFolder}', to = '/lxa' },
+          },
+        },
 
-			-- For LEA (macOS)
-			table.insert(dap.configurations.go, {
-				type = 'delvelea',
-				name = 'LEA LOCAL debugging',
-				mode = 'remote',
-				request = 'attach',
-			})
+        -- For LEA (macOS)
+        {
+          type = 'delvelea',
+          name = 'LEA LOCAL debugging',
+          mode = 'remote',
+          request = 'attach',
+        },
 
-			-- For BFF (macOS)
-			table.insert(dap.configurations.go, {
-				type = 'delvebff',
-				name = 'BFF LOCAL debugging',
-				mode = 'remote',
-				request = 'attach',
-			})
+        -- For BFF (macOS)
+        {
+          type = 'delvebff',
+          name = 'BFF LOCAL debugging',
+          mode = 'remote',
+          request = 'attach',
+        },
+      }
+
+      for _,config in ipairs(work_configs) do
+        table.insert(dap.configurations.go, config)
+      end
 
       -- Adapter LEA
 			dap.adapters.delvelea = {
@@ -68,26 +73,32 @@ local function WorkDapConfig()
 			}
 end
 
-local function PersonalDapConfig()
-			local dap = require('dap') -- insert dap
+local function PersonalGoDapConfig()
+			local dap = require('dap')
+      local personal_configs = {
+        -- For local debugging (linux)
+        {
+          type = 'delve',
+          name = 'Local debugging (:2345)',
+          mode = 'remote',
+          request = 'attach',
+        },
 
-			-- For local debugging (linux)
-			table.insert(dap.configurations.go, {
-				type = 'delve',
-				name = 'Local debugging (:2345)',
-				mode = 'remote',
-				request = 'attach',
-			})
-			-- For container debugging (linux)
-			table.insert(dap.configurations.go, {
-				type = 'delve',
-				name = 'Container debugging (/app:2345)',
-				mode = 'remote',
-				request = 'attach',
-				substitutePath = {
-					{ from = '${workspaceFolder}', to = '/app' },
-				},
-			})
+        -- For container debugging (linux)
+        {
+          type = 'delve',
+          name = 'Container debugging (/app:2345)',
+          mode = 'remote',
+          request = 'attach',
+          substitutePath = {
+            { from = '${workspaceFolder}', to = '/app' },
+          },
+        },
+      }
+
+      for _,config in ipairs(personal_configs) do
+        table.insert(dap.configurations.go, config)
+      end
 
 			-- Adapter linux
 			dap.adapters.delve = {
@@ -98,17 +109,18 @@ local function PersonalDapConfig()
 end
 
 local function load_go_config()
-  local dap_go = require('dap-go')
-
-  -- For Go setup
-  dap_go.setup()
+  local dap = require('dap')
+  if dap.configurations.go == nil then
+    dap.configurations.go = {}
+  end
 
   -- Dap setups
   if vim.env.MACHINE_ENV == 'personal' then
-    PersonalDapConfig()
+    PersonalGoDapConfig()
   else
-    WorkDapConfig()
+    WorkGoDapConfig()
   end
+
 end
 
 return {
@@ -139,7 +151,6 @@ return {
 
     end,
 		dependencies = {
-      { 'leoluz/nvim-dap-go' },
 			{ 'nvim-neotest/nvim-nio' },
 			{ 
         'rcarriga/nvim-dap-ui',
