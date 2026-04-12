@@ -1,4 +1,4 @@
-local ts_ensure_installed = { 'go', 'javascript', 'typescript', 'json', 'lua', 'html', 'rust', 'yaml', 'vim', 'markdown', 'markdown_inline', 'sql', 'zig'}
+local ts_ensure_installed = { 'arduino', 'go', 'javascript', 'typescript', 'json', 'lua', 'html', 'rust', 'yaml', 'vim', 'markdown', 'markdown_inline', 'sql', 'zig' }
 
 vim.api.nvim_create_autocmd({ 'Filetype' }, {
   pattern = ts_ensure_installed,
