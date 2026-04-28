@@ -8,9 +8,7 @@ return {
         lsp = {
           document_highlight = false,
           format_on_save = false,
-          code_lens_action = { enable = false, },
           diagnostic = { virtual_text = false },
-          hover = { enable = false },
           zls = {
             filetypes={'zig'},
             settings={
