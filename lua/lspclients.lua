@@ -9,4 +9,4 @@ vim.lsp.config['zls'] = {
   workspace_required = false,
 }
 
-vim.lsp.enable('zls')
+-- vim.lsp.enable('zls')

@@ -1,3 +1,4 @@
+-- general options
 vim.opt.number = true
 vim.opt.numberwidth = 1
 vim.opt.clipboard:append('unnamedplus')
@@ -21,10 +22,8 @@ vim.o.winborder = 'rounded'
 vim.cmd('colorscheme eldritch')
 vim.cmd('syntax enable')
 
--- TODO: check if this still needed
--- if vim.env.MACHINE_ENV ~= 'personal' then
-  require('transparent').clear_prefix('NvimTree')
-  require('transparent').clear_prefix('NormalFloat')
-  require('transparent').clear_prefix('FloatBorder')
-  require('transparent').clear_prefix('FzfLua')
--- end
+-- config clear background
+require('transparent').clear_prefix('NvimTree')
+require('transparent').clear_prefix('NormalFloat')
+require('transparent').clear_prefix('FloatBorder')
+require('transparent').clear_prefix('FzfLua')
