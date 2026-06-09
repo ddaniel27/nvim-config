@@ -4,6 +4,7 @@ local function should_load()
   end
   return {
     'yuukiflow/Arduino-Nvim',
+    -- dir = vim.fn.expand('$HOME') .. '/personal/Arduino-Nvim',
     ft = 'arduino',
     lazy = true,
     opts = {

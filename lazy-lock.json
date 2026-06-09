@@ -1,5 +1,5 @@
 {
-  "Arduino-Nvim": { "branch": "main", "commit": "163fee0768a64091b0365a110cc5daeef9c9111c" },
+  "Arduino-Nvim": { "branch": "main", "commit": "c9983b5ead3b2ce574d9bcb9708febad0f8ddbd7" },
   "blink.cmp": { "branch": "main", "commit": "78336bc89ee5365633bcf754d93df01678b5c08f" },
   "eldritch.nvim": { "branch": "master", "commit": "0415fa72c348e814a7a6cc9405593a4f812fe12f" },
   "friendly-snippets": { "branch": "main", "commit": "6cd7280adead7f586db6fccbd15d2cac7e2188b9" },
