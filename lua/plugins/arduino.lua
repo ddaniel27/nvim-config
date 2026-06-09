@@ -3,9 +3,7 @@ local function should_load()
     return {}
   end
   return {
-    -- 'yuukiflow/Arduino-Nvim',
-    dir = vim.fn.expand('$HOME') .. '/personal/Arduino-Nvim',
-    dependencies = { 'neovim/nvim-lspconfig' },
+    'yuukiflow/Arduino-Nvim',
     ft = 'arduino',
     lazy = true,
     opts = {

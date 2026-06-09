@@ -17,17 +17,14 @@ vim.opt.background = 'dark'
 vim.opt.mouse = ''
 vim.o.winborder = 'rounded'
 
--- General LSP settings
-vim.lsp.inlay_hint.enable(false)
-
 -- colorscheme configs
 vim.cmd('colorscheme eldritch')
 vim.cmd('syntax enable')
 
 -- TODO: check if this still needed
-if vim.env.MACHINE_ENV ~= 'personal' then
+-- if vim.env.MACHINE_ENV ~= 'personal' then
   require('transparent').clear_prefix('NvimTree')
   require('transparent').clear_prefix('NormalFloat')
   require('transparent').clear_prefix('FloatBorder')
   require('transparent').clear_prefix('FzfLua')
-end
+-- end

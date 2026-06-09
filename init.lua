@@ -1,4 +1,5 @@
 require('config.lazy')
+require('lspclients')
 require('settings')
 require('functions')
 require('mappings')

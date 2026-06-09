@@ -7,6 +7,11 @@ return {
 	{ 
 		'xiyaowong/transparent.nvim',
 		build = ':TransparentEnable',
+    opts = {
+      exclude_groups = {
+        'CursorLine',
+      },
+    },
 	},
 	{
 		'nvim-lualine/lualine.nvim',
