@@ -4,11 +4,11 @@ return {
     config = function()
       require('navigator').setup({
         default_mapping = false,
-        lsp_signature_help = false,
         lsp = {
-          document_highlight = false,
+          document_highlight = true,
           format_on_save = false,
           diagnostic = { virtual_text = false },
+          disable_lsp = {'yamlls'},
         },
 		})
     end,

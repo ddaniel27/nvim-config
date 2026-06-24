@@ -1,7 +1,6 @@
 -- general options
 vim.opt.number = true
 vim.opt.numberwidth = 1
-vim.opt.clipboard:append('unnamedplus')
 vim.opt.encoding = 'utf-8'
 vim.opt.showmatch = true
 vim.opt.shiftwidth = 2
@@ -17,6 +16,19 @@ vim.opt.showtabline = 2
 vim.opt.background = 'dark'
 vim.opt.mouse = ''
 vim.o.winborder = 'rounded'
+
+vim.opt.clipboard:append('unnamedplus')
+vim.g.clipboard = {
+  name = 'OSC 52',
+  copy = {
+    ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+  },
+  paste = {
+    ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+  },
+}
 
 -- colorscheme configs
 vim.cmd('colorscheme eldritch')

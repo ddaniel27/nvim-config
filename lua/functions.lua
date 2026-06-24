@@ -9,6 +9,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Disable inlay_hint
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function()
+    vim.lsp.inlay_hint.enable(false)
+  end,
+})
+
 -- Auto format go files when saved
 local format_sync_grp = vim.api.nvim_create_augroup('GoFormat', {})
 vim.api.nvim_create_autocmd('BufWritePre', {
