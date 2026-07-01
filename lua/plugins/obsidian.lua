@@ -38,10 +38,6 @@ return {
     },
     legacy_commands = false,
     workspaces = config['workspaces'],
-    completion = {
-      nvim_cmp = false,
-      blink = true,
-    },
     picker = {
       name = 'fzf-lua',
     },
