@@ -8,7 +8,7 @@ return {
           document_highlight = true,
           format_on_save = false,
           diagnostic = { virtual_text = false },
-          disable_lsp = {'yamlls'},
+          disable_lsp = {'yamlls', 'jsonls'},
         },
 		})
     end,
@@ -21,6 +21,9 @@ return {
             settings = {
               gopls = {
                 usePlaceholders = false,
+                analyses = {
+                  ST1000 = false,
+                }
               },
             },
           },

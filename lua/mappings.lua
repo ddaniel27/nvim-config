@@ -43,11 +43,13 @@ set('n', 'gi', require('navigator.implementation').implementation, opts)
 set('n', 'gP', require('navigator.definition').type_definition_preview, opts)
 set('n', 'grr', require('navigator.reference').async_ref, opts)
 set('n', 'grn', vim.lsp.buf.rename, opts)
-set('n', ']d', function() require('navigator.diagnostics').goto_next({count=1, float=true}) end, opts)
-set('n', '[d', function() require('navigator.diagnostics').goto_prev({count=1, float=true}) end, opts)
+set('n', ']d', function() require('navigator.diagnostics').goto_next({float=true}) end, opts)
+set('n', '[d', function() require('navigator.diagnostics').goto_prev({float=true}) end, opts)
+set('n', ']D', function() vim.diagnostic.jump({count=1,float=true}) end, opts) -- raw diagnostics next
+set('n', '[D', function() vim.diagnostic.jump({count=-1,float=true}) end, opts) -- raw diagnostics prev
 set('n', ']r', require('navigator.treesitter').goto_next_usage, opts)
 set('n', '[r', require('navigator.treesitter').goto_previous_usage, opts)
-set('n', '<Space>ca', require('navigator.codeAction').code_action, opts)
+set('n', '<Space>ca', vim.lsp.buf.code_action, opts)
 set('n', '<Leader>gi', require('navigator.hierarchy').incoming_calls, opts)
 set('n', 'K', vim.lsp.buf.hover, opts)
 
