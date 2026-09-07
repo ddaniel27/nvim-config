@@ -3,6 +3,14 @@ return {
     'eldritch-theme/eldritch.nvim',
     opts = {},
   },
+  {
+    'wtfox/luna.nvim',
+    opts = {},
+  },
+  {
+    'kungfusheep/mfd.nvim',
+    opts = {},
+  },
 	{ 'nyoom-engineering/oxocarbon.nvim' },
 	{ 
 		'xiyaowong/transparent.nvim',

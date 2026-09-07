@@ -31,7 +31,7 @@ vim.g.clipboard = {
 }
 
 -- colorscheme configs
-vim.cmd('colorscheme eldritch')
+vim.cmd('colorscheme mfd')
 vim.cmd('syntax enable')
 
 -- config clear background

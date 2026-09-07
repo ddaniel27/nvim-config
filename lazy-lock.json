@@ -9,6 +9,8 @@
   "guihua.lua": { "branch": "master", "commit": "d178056728548ed8a99cce94de47b7500bd6889a" },
   "lazy.nvim": { "branch": "main", "commit": "85c7ff3711b730b4030d03144f6db6375044ae82" },
   "lualine.nvim": { "branch": "master", "commit": "221ce6b2d999187044529f49da6554a92f740a96" },
+  "luna.nvim": { "branch": "main", "commit": "727c19334528e1b8939f518d1ea43c4e62d98f91" },
+  "mfd.nvim": { "branch": "master", "commit": "72ae627792960a7e490cb5242a78c570d02ba775" },
   "navigator.lua": { "branch": "master", "commit": "cdf118b21a2b7c05a6e8e6d57acbe7a41d4ea41b" },
   "nvim-autopairs": { "branch": "master", "commit": "7b9923abad60b903ece7c52940e1321d39eccc79" },
   "nvim-dap": { "branch": "master", "commit": "45a69eba683a2c448dd9ecfc4de89511f0646b5f" },
