@@ -82,10 +82,16 @@ require('config.dbui')
 
 -- Arduino plugins
 if vim.env.MACHINE_ENV == 'personal' then
-  vim.pack.add({
-    { src = 'https://github.com/yuukiflow/Arduino-Nvim' },
+  vim.api.nvim_create_autocmd('FileType', {
+    once = true,
+    pattern = 'arduino',
+    callback = function()
+      vim.pack.add({
+        { src = 'https://github.com/yuukiflow/Arduino-Nvim' },
+      })
+      require('config.arduino')
+    end
   })
-  require('config.arduino')
 end
 
 -- Blink cmp plugins
