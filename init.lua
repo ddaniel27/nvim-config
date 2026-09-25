@@ -9,6 +9,17 @@ vim.pack.add({
 })
 require('config.dependencies')
 
+-- Autopairs
+vim.api.nvim_create_autocmd('InsertEnter', {
+  once = true,
+  callback = function()
+    vim.pack.add({
+      { src = 'https://github.com/windwp/nvim-autopairs' },
+    })
+    require('nvim-autopairs').setup()
+  end
+})
+
 -- ***Aesthetic***
 -- Tabs and lines
 vim.pack.add({
@@ -70,12 +81,21 @@ vim.pack.add({
 })
 require('config.dbui')
 
+-- Arduino plugins
 if vim.env.MACHINE_ENV == 'personal' then
   vim.pack.add({
     { src = 'https://github.com/yuukiflow/Arduino-Nvim' },
   })
   require('config.arduino')
 end
+
+-- Blink cmp plugins
+vim.pack.add({
+  { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range('1.x') },
+  { src = 'https://github.com/rafamadriz/friendly-snippets' },
+})
+require('config.blink')
+
 
 -- require('functions')
 require('settings')
