@@ -1,3 +1,10 @@
+vim.pack.add({
+  { src = 'https://github.com/tpope/vim-dadbod' },
+  -- Lazy loading for 'sql', 'mysql', 'plsql'
+  { src = 'https://github.com/kristijanhusak/vim-dadbod-completion' }, 
+  { src = 'https://github.com/kristijanhusak/vim-dadbod-ui' },
+})
+
 local function work_db_config()
   return {
     {

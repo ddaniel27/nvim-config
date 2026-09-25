@@ -1,3 +1,9 @@
+vim.pack.add({
+  { src = 'https://github.com/ray-x/guihua.lua' },
+  { src = 'https://github.com/ray-x/go.nvim' },
+  { src = 'https://github.com/ray-x/navigator.lua' },
+})
+
 require('guihua.maps').setup({
   maps = {
     prev = '<C-k>',
@@ -35,4 +41,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.lsp.inlay_hint.enable(false)
   end,
 })
-

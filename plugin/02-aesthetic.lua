@@ -1,3 +1,17 @@
+-- Tabs and lines
+vim.pack.add({
+  { src = 'https://github.com/nvim-lualine/lualine.nvim' },
+  { src = 'https://github.com/nanozuki/tabby.nvim' },
+  { src = 'https://github.com/xiyaowong/transparent.nvim' },
+})
+-- Themes
+vim.pack.add({
+  { src = 'https://github.com/eldritch-theme/eldritch.nvim' },
+  { src = 'https://github.com/wtfox/luna.nvim' },
+  { src = 'https://github.com/kungfusheep/mfd.nvim' },
+  { src = 'https://github.com/nyoom-engineering/oxocarbon.nvim' },
+})
+
 require('transparent').setup({
   exclude_groups = {
     'CursorLine',

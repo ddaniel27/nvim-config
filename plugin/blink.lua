@@ -1,3 +1,8 @@
+vim.pack.add({
+  { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range('1.x') },
+  { src = 'https://github.com/rafamadriz/friendly-snippets' },
+})
+
 require('blink.cmp').setup({
   enabled = function() return not vim.tbl_contains({ 'dap-repl' }, vim.bo.filetype) end,
   keymap = { 
@@ -44,3 +49,4 @@ require('blink.cmp').setup({
 
   fuzzy = { implementation = 'prefer_rust_with_warning' },
 })
+
