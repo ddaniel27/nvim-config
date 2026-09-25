@@ -26,6 +26,8 @@ set('n', '<Leader>j', ':-tabmove<CR>', opts)
 
 -- Mappings Navigator and LSP
 set('n', 'gd', vim.lsp.buf.definition, opts)
+set('n', ']d', function() vim.diagnostic.jump({count=1,float=true}) end, opts)
+set('n', '[d', function() vim.diagnostic.jump({count=-1,float=true}) end, opts)
 set('n', ']r', require('navigator.treesitter').goto_next_usage, opts)
 set('n', '[r', require('navigator.treesitter').goto_previous_usage, opts)
 
