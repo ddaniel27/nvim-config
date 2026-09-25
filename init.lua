@@ -70,6 +70,13 @@ vim.pack.add({
 })
 require('config.dbui')
 
+if vim.env.MACHINE_ENV == 'personal' then
+  vim.pack.add({
+    { src = 'https://github.com/yuukiflow/Arduino-Nvim' },
+  })
+  require('config.arduino')
+end
+
 -- require('functions')
 require('settings')
 require('mappings')

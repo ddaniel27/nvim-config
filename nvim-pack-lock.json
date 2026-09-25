@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "Arduino-Nvim": {
+      "rev": "c9983b5ead3b2ce574d9bcb9708febad0f8ddbd7",
+      "src": "https://github.com/yuukiflow/Arduino-Nvim"
+    },
     "eldritch.nvim": {
       "rev": "c9131a5a11f00a2f428f563a4eb2c4aeb680d963",
       "src": "https://github.com/eldritch-theme/eldritch.nvim"
