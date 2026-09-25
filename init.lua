@@ -62,6 +62,14 @@ vim.pack.add({
 })
 require('config.dap')
 
+-- DBUI plugins
+vim.pack.add({
+  { src = 'https://github.com/tpope/vim-dadbod' },
+  { src = 'https://github.com/kristijanhusak/vim-dadbod-completion' }, -- Lazy loading for 'sql', 'mysql', 'plsql'
+  { src = 'https://github.com/kristijanhusak/vim-dadbod-ui' },
+})
+require('config.dbui')
+
 -- require('functions')
 require('settings')
 require('mappings')
