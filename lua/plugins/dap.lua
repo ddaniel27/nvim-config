@@ -32,18 +32,6 @@ end
 local function work_go_dap_config()
 			local dap = require('dap')
       local work_configs = {
-        -- For CDAPI (macOS)
-        {
-          type = 'delvelea',
-          name = 'CDAPI CONTAINER debugging',
-          mode = 'remote',
-          request = 'attach',
-          substitutePath = {
-            { from = '/opt/homebrew/Cellar/go/1.23.1/libexec', to = '/usr/local/go'},
-            { from = '${workspaceFolder}', to = '/go/src/github.mheducation.com/MHEducation/dle-course-delivery-api' },
-          },
-        },
-
         -- For LEA (macOS)
         {
           type = 'delvelea',

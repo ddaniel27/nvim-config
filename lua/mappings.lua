@@ -7,7 +7,6 @@ vim.g.mapleader = ' '
 
 -- Mappings buf/win manager
 set('n', '<Leader>l', ':nohlsearch<CR>', opts)
-set('n', '<Leader>t', ':tabnew term://zsh<CR>A', opts)
 set('n', '<A-h>', '<C-W><', opts)
 set('n', '<A-j>', '<C-W>-', opts)
 set('n', '<A-k>', '<C-W>+', opts)
@@ -19,12 +18,19 @@ set('n', '<C-l>', '<C-w>l', opts)
 set('n', 'ZA', ':tabo<CR>', opts)
 set('t', '<C-[><C-[>', '<C-\\><C-n>', opts)
 
--- Mappings Tabby
+-- Mappings tabs
 set('n', '<C-x>', ':tabn<CR>', opts)
 set('n', '<C-z>', ':tabp<CR>', opts)
 set('n', '<Leader>k', ':+tabmove<CR>', opts)
 set('n', '<Leader>j', ':-tabmove<CR>', opts)
 
+-- Mappings Navigator and LSP
+set('n', 'gd', vim.lsp.buf.definition, opts)
+set('n', ']r', require('navigator.treesitter').goto_next_usage, opts)
+set('n', '[r', require('navigator.treesitter').goto_previous_usage, opts)
+
+
+-- |---------- PLUGINS MAPPINGS -----------|
 -- Mappings NvimTree
 set('n', '<Leader>n', ':NvimTreeFindFileToggle<CR>', opts)
 
@@ -35,23 +41,6 @@ set('n', '<Leader>g<CR>', ':G<CR>', opts)
 set('n', '<Leader>p', require('fzf-lua').files, opts)
 set('n', '<Leader>P', require('fzf-lua').grep_project, opts)
 set('n', '<Leader>b', require('fzf-lua').oldfiles, opts)
-
--- Mappings Navigator and LSP
-set('n', 'gd', require('navigator.definition').definition, opts)
-set('n', 'gp', require('navigator.definition').definition_preview, opts)
-set('n', 'gi', require('navigator.implementation').implementation, opts)
-set('n', 'gP', require('navigator.definition').type_definition_preview, opts)
-set('n', 'grr', require('navigator.reference').async_ref, opts)
-set('n', 'grn', vim.lsp.buf.rename, opts)
-set('n', ']d', function() require('navigator.diagnostics').goto_next({float=true}) end, opts)
-set('n', '[d', function() require('navigator.diagnostics').goto_prev({float=true}) end, opts)
-set('n', ']D', function() vim.diagnostic.jump({count=1,float=true}) end, opts) -- raw diagnostics next
-set('n', '[D', function() vim.diagnostic.jump({count=-1,float=true}) end, opts) -- raw diagnostics prev
-set('n', ']r', require('navigator.treesitter').goto_next_usage, opts)
-set('n', '[r', require('navigator.treesitter').goto_previous_usage, opts)
-set('n', '<Space>ca', vim.lsp.buf.code_action, opts)
-set('n', '<Leader>gi', require('navigator.hierarchy').incoming_calls, opts)
-set('n', 'K', vim.lsp.buf.hover, opts)
 
 -- Mappings Go files (with autocmd)
 vim.api.nvim_create_autocmd('FileType', {
