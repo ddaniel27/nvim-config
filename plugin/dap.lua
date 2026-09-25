@@ -5,15 +5,7 @@ vim.pack.add({
 })
 
 local function get_go_test()
-  local tests_query = [[
-  (function_declaration
-    name: (identifier) @testname
-    parameters: (parameter_list
-      . (parameter_declaration
-        type: (pointer_type) @type) .)
-    (#match? @type "*testing.(T|M)")
-    (#match? @testname "^Test.+$")) @parent
-  ]]
+  local tests_query = require('ts_queries.go_test').test_func_name
   
   local stop_row = vim.api.nvim_win_get_cursor(0)[1]
   local parser = vim.treesitter.get_parser(0)
