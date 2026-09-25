@@ -1,12 +1,13 @@
--- require('config.lazy')
--- require('functions')
 local utils = require('utils')
 
 -- Vimpack
 -- Dependencies
 vim.pack.add({
   { src = 'https://github.com/nvim-tree/nvim-web-devicons' },
+  { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' },
+  { src = 'https://github.com/neovim/nvim-lspconfig' }, -- Deprecated (?)
 })
+require('config.dependencies')
 
 -- ***Aesthetic***
 -- Tabs and lines
@@ -45,6 +46,15 @@ vim.pack.add({
 })
 require('config.fzf')
 
+-- Navigator plugins
+vim.pack.add({
+  { src = 'https://github.com/ray-x/guihua.lua' },
+  { src = 'https://github.com/ray-x/go.nvim' },
+  { src = 'https://github.com/ray-x/navigator.lua' },
+})
+require('config.navigator')
 
+-- require('functions')
 require('settings')
 require('mappings')
+-- require('config.lazy')

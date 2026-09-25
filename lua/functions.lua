@@ -26,13 +26,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- Disable inlay_hint
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function()
-    vim.lsp.inlay_hint.enable(false)
-  end,
-})
-
 -- Start treesitter
 vim.api.nvim_create_autocmd({ 'Filetype' }, {
   pattern = ts_ensure_installed,
