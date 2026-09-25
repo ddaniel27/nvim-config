@@ -28,8 +28,8 @@ set('n', '<Leader>j', ':-tabmove<CR>', opts)
 set('n', 'gd', vim.lsp.buf.definition, opts)
 set('n', ']d', function() vim.diagnostic.jump({count=1,float=true}) end, opts)
 set('n', '[d', function() vim.diagnostic.jump({count=-1,float=true}) end, opts)
-set('n', ']r', require('navigator.treesitter').goto_next_usage, opts)
-set('n', '[r', require('navigator.treesitter').goto_previous_usage, opts)
+-- set('n', ']r', require('navigator.treesitter').goto_next_usage, opts)
+-- set('n', '[r', require('navigator.treesitter').goto_previous_usage, opts)
 
 
 -- |---------- PLUGINS MAPPINGS -----------|
@@ -40,33 +40,33 @@ set('n', '<Leader>n', ':NvimTreeFindFileToggle<CR>', opts)
 set('n', '<Leader>g<CR>', ':G<CR>', opts)
 
 -- Mappings FZF
-set('n', '<Leader>p', require('fzf-lua').files, opts)
-set('n', '<Leader>P', require('fzf-lua').grep_project, opts)
-set('n', '<Leader>b', require('fzf-lua').oldfiles, opts)
+-- set('n', '<Leader>p', require('fzf-lua').files, opts)
+-- set('n', '<Leader>P', require('fzf-lua').grep_project, opts)
+-- set('n', '<Leader>b', require('fzf-lua').oldfiles, opts)
 
 -- Mappings Go files (with autocmd)
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'go',
-  callback = function()
-    set('n', '<F1>', ':GoAlt<CR>', opts)
-    set('n', '<F3>', ':GoTestFunc<CR>', opts)
-    set('n', '<F4>', function() require('dap').set_breakpoint(vim.fn.input('Condition: ')) end, opts)
-    set('n', '<F5>', ':DapToggleBreakpoint<CR>', opts)
-    set('n', '<F6>', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, opts)
-    set('n', '<F7>', ':DapStepInto<CR>', opts)
-    set('n', '<F8>', ':DapStepOver<CR>', opts)
-    set('n', '<F9>', ':DapStepOut<CR>', opts)
-    set('n', '<F11>', ':DapContinue<CR>', opts)
-    set('n', '<F12>', ':DapUiToggle<CR>:DapContinue<CR>', opts)
-  end,
-})
+-- vim.api.nvim_create_autocmd('FileType', {
+--   pattern = 'go',
+--   callback = function()
+--     set('n', '<F1>', ':GoAlt<CR>', opts)
+--     set('n', '<F3>', ':GoTestFunc<CR>', opts)
+--     set('n', '<F4>', function() require('dap').set_breakpoint(vim.fn.input('Condition: ')) end, opts)
+--     set('n', '<F5>', ':DapToggleBreakpoint<CR>', opts)
+--     set('n', '<F6>', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, opts)
+--     set('n', '<F7>', ':DapStepInto<CR>', opts)
+--     set('n', '<F8>', ':DapStepOver<CR>', opts)
+--     set('n', '<F9>', ':DapStepOut<CR>', opts)
+--     set('n', '<F11>', ':DapContinue<CR>', opts)
+--     set('n', '<F12>', ':DapUiToggle<CR>:DapContinue<CR>', opts)
+--   end,
+-- })
 
 -- Mappings Tex files (with autocmd)
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'tex',
-  callback = function()
-    local opts = { buffer = true }
-    set('n', '<F3>', ':VimtexCompile<CR>', opts)
-    set('n', '\\lbi', 'o\\begin{itemize}\n\\end{itemize}<Esc>O\\item <Esc>', opts)
-  end,
-})
+-- vim.api.nvim_create_autocmd('FileType', {
+--   pattern = 'tex',
+--   callback = function()
+--     local opts = { buffer = true }
+--     set('n', '<F3>', ':VimtexCompile<CR>', opts)
+--     set('n', '\\lbi', 'o\\begin{itemize}\n\\end{itemize}<Esc>O\\item <Esc>', opts)
+--   end,
+-- })

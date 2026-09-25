@@ -1,7 +1,3 @@
-local function is_in_git_project()
-  return vim.fn.isdirectory('.git') == 1
-end
-
 local function set_signify_hightlights()
   -- Green symbols (new lines)
   vim.api.nvim_set_hl(
@@ -25,19 +21,7 @@ local function set_signify_hightlights()
   )
 end
 
-return {
-	{ 
-    'tpope/vim-fugitive',
-    cond = is_in_git_project,
-  },
-	{ 
-    'mhinz/vim-signify',
-    cond = is_in_git_project,
-    config = function()
-      vim.api.nvim_create_autocmd('ColorScheme', {
-        pattern = '*',
-        callback = set_signify_hightlights,
-      })
-    end,
-  },
-}
+vim.api.nvim_create_autocmd('ColorScheme', {
+  pattern = '*',
+  callback = set_signify_hightlights,
+})

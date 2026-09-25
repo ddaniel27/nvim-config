@@ -1,0 +1,48 @@
+{
+  "plugins": {
+    "eldritch.nvim": {
+      "rev": "c9131a5a11f00a2f428f563a4eb2c4aeb680d963",
+      "src": "https://github.com/eldritch-theme/eldritch.nvim"
+    },
+    "lualine.nvim": {
+      "rev": "221ce6b2d999187044529f49da6554a92f740a96",
+      "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
+    "luna.nvim": {
+      "rev": "727c19334528e1b8939f518d1ea43c4e62d98f91",
+      "src": "https://github.com/wtfox/luna.nvim"
+    },
+    "mfd.nvim": {
+      "rev": "72ae627792960a7e490cb5242a78c570d02ba775",
+      "src": "https://github.com/kungfusheep/mfd.nvim"
+    },
+    "nvim-tree.lua": {
+      "rev": "478c69c0fe253caea88de9c5e138bfa77395a59a",
+      "src": "https://github.com/nvim-tree/nvim-tree.lua"
+    },
+    "nvim-web-devicons": {
+      "rev": "58447c1fca354bbf184425e4a8d01deecbd6f3c4",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
+    },
+    "oxocarbon.nvim": {
+      "rev": "cd6523a0836d6e8ee823d343149fd06c7b71fdde",
+      "src": "https://github.com/nyoom-engineering/oxocarbon.nvim"
+    },
+    "tabby.nvim": {
+      "rev": "3c130e1fcb598ce39a9c292847e32d7c3987cf11",
+      "src": "https://github.com/nanozuki/tabby.nvim"
+    },
+    "transparent.nvim": {
+      "rev": "e00ca1cf09caef575edf8da7e5a8b9193893b4c7",
+      "src": "https://github.com/xiyaowong/transparent.nvim"
+    },
+    "vim-fugitive": {
+      "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",
+      "src": "https://github.com/tpope/vim-fugitive"
+    },
+    "vim-signify": {
+      "rev": "3b5ae37eb2b77c3ae58d60dfdc3fc30258078663",
+      "src": "https://github.com/mhinz/vim-signify"
+    }
+  }
+}
