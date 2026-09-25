@@ -4,6 +4,10 @@
       "rev": "c9131a5a11f00a2f428f563a4eb2c4aeb680d963",
       "src": "https://github.com/eldritch-theme/eldritch.nvim"
     },
+    "fzf-lua": {
+      "rev": "13bb178a299f7493dd64427a58e61904c4b58ecb",
+      "src": "https://github.com/ibhagwan/fzf-lua"
+    },
     "lualine.nvim": {
       "rev": "221ce6b2d999187044529f49da6554a92f740a96",
       "src": "https://github.com/nvim-lualine/lualine.nvim"

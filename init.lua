@@ -39,6 +39,12 @@ vim.pack.add({
 )
 require('config.git')
 
+-- FZF Plugins
+vim.pack.add({
+  { src = 'https://github.com/ibhagwan/fzf-lua' },
+})
+require('config.fzf')
+
 
 require('settings')
 require('mappings')

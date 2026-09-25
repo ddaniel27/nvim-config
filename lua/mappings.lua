@@ -40,9 +40,9 @@ set('n', '<Leader>n', ':NvimTreeFindFileToggle<CR>', opts)
 set('n', '<Leader>g<CR>', ':G<CR>', opts)
 
 -- Mappings FZF
--- set('n', '<Leader>p', require('fzf-lua').files, opts)
--- set('n', '<Leader>P', require('fzf-lua').grep_project, opts)
--- set('n', '<Leader>b', require('fzf-lua').oldfiles, opts)
+set('n', '<Leader>p', require('fzf-lua').files, opts)
+set('n', '<Leader>P', require('fzf-lua').grep_project, opts)
+set('n', '<Leader>b', require('fzf-lua').oldfiles, opts)
 
 -- Mappings Go files (with autocmd)
 -- vim.api.nvim_create_autocmd('FileType', {
