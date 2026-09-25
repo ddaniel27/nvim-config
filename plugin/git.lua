@@ -25,19 +25,14 @@ local function set_signify_hightlights()
   )
 end
 
-return {
-	{ 
-    'tpope/vim-fugitive',
-    cond = is_in_git_project,
-  },
-	{ 
-    'mhinz/vim-signify',
-    cond = is_in_git_project,
-    config = function()
-      vim.api.nvim_create_autocmd('ColorScheme', {
-        pattern = '*',
-        callback = set_signify_hightlights,
-      })
-    end,
-  },
-}
+vim.pack.add({
+  { src = 'https://github.com/tpope/vim-fugitive' },
+  { src = 'https://github.com/mhinz/vim-signify' },
+},
+	{ load = is_in_git_project() }
+)
+
+vim.api.nvim_create_autocmd('ColorScheme', {
+  pattern = '*',
+  callback = set_signify_hightlights,
+})

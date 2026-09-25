@@ -1,4 +1,3 @@
-local obsidian_config = require('plugins.obsidian')
 local ts_ensure_installed = { 
   'arduino',
   'go',
@@ -26,13 +25,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- Disable inlay_hint
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function()
-    vim.lsp.inlay_hint.enable(false)
-  end,
-})
-
 -- Start treesitter
 vim.api.nvim_create_autocmd({ 'Filetype' }, {
   pattern = ts_ensure_installed,
@@ -50,15 +42,3 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   end,
   group = format_sync_grp,
 })
-
--- Function to open obsidia with command
-vim.api.nvim_create_user_command('Obsidian', function()
-  -- to use in other machines
-  local path = '/tickets/Tickets.md'
-  if vim.env.MACHINE_ENV == 'personal' then
-    path = '/todo/TO-DO.md'
-  end
-
-  vim.cmd('cd ' .. obsidian_config.default_workspace)
-  vim.cmd('edit ' .. obsidian_config.default_workspace .. path)
-end, {})

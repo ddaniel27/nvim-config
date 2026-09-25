@@ -1,3 +1,10 @@
+vim.pack.add({
+  { src = 'https://github.com/tpope/vim-dadbod' },
+  -- Lazy loading for 'sql', 'mysql', 'plsql'
+  { src = 'https://github.com/kristijanhusak/vim-dadbod-completion' }, 
+  { src = 'https://github.com/kristijanhusak/vim-dadbod-ui' },
+})
+
 local function work_db_config()
   return {
     {
@@ -42,31 +49,14 @@ end
 local function personal_db_config()
   return {}
 end
--- TODO: add config for machine env
-return {
-  {
-    'kristijanhusak/vim-dadbod-ui',
-    dependencies = {
-      { 'tpope/vim-dadbod', lazy = true },
-      { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true },
-    },
-    cmd = {
-      'DBUI',
-      'DBUIToggle',
-      'DBUIAddConnection',
-      'DBUIFindBuffer',
-    },
-    init = function()
-      vim.g.db_ui_use_nerd_fonts = 1
 
-      local dbs = {}
-      if vim.env.MACHINE_ENV == 'personal' then
-        dbs = personal_db_config()
-      else
-        dbs = work_db_config()
-      end
+vim.g.db_ui_use_nerd_fonts = 1
 
-      vim.g.dbs = dbs
-    end, 
-  },
-}
+local dbs = {}
+if vim.env.MACHINE_ENV == 'personal' then
+  dbs = personal_db_config()
+else
+  dbs = work_db_config()
+end
+
+vim.g.dbs = dbs
