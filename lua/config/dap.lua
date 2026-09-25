@@ -181,82 +181,65 @@ local function load_go_config()
 
 end
 
-return {
-	{
-    'mfussenegger/nvim-dap',
-    lazy=true,
-    config = function()
-      -- Update signs for better visuals
-      vim.api.nvim_set_hl(0, 'sage_green', {
-        fg = '#88B378',
-        bg = 'NONE',
-        bold = true,
-      })
-      vim.api.nvim_set_hl(0, 'sage_yellow', {
-        fg = '#F6C531',
-        bg = 'NONE',
-        bold = true,
-      })
-      vim.api.nvim_set_hl(0, 'sage_red', {
-        fg = '#AC0715',
-        bg = 'NONE',
-        bold = true,
-      })
-      vim.fn.sign_define(
-        'DapBreakpointRejected',
-        { text = '', texthl = 'sage_red', linehl = '', numhl = '' }
-      )
-      vim.fn.sign_define(
-        'DapBreakpointCondition',
-        { text = '󰯳', texthl = 'sage_green', linehl = '', numhl = '' }
-      )
-      vim.fn.sign_define(
-        'DapLogPoint',
-        { text = '', texthl = 'sage_yellow', linehl = '', numhl = '' }
-      )
-      vim.fn.sign_define(
-        'DapBreakpoint',
-        { text = '', texthl = 'sage_green', linehl = '', numhl = '' }
-      )
-      vim.fn.sign_define(
-        'DapStopped',
-        { text = '', texthl = 'sage_green', linehl = '', numhl = '' }
-      )
+vim.api.nvim_set_hl(0, 'sage_green', {
+  fg = '#88B378',
+  bg = 'NONE',
+  bold = true,
+})
+vim.api.nvim_set_hl(0, 'sage_yellow', {
+  fg = '#F6C531',
+  bg = 'NONE',
+  bold = true,
+})
+vim.api.nvim_set_hl(0, 'sage_red', {
+  fg = '#AC0715',
+  bg = 'NONE',
+  bold = true,
+})
+vim.fn.sign_define(
+  'DapBreakpointRejected',
+  { text = '', texthl = 'sage_red', linehl = '', numhl = '' }
+)
+vim.fn.sign_define(
+  'DapBreakpointCondition',
+  { text = '󰯳', texthl = 'sage_green', linehl = '', numhl = '' }
+)
+vim.fn.sign_define(
+  'DapLogPoint',
+  { text = '', texthl = 'sage_yellow', linehl = '', numhl = '' }
+)
+vim.fn.sign_define(
+  'DapBreakpoint',
+  { text = '', texthl = 'sage_green', linehl = '', numhl = '' }
+)
+vim.fn.sign_define(
+  'DapStopped',
+  { text = '', texthl = 'sage_green', linehl = '', numhl = '' }
+)
 
-      -- config for specific languages
-      local current_filetype = vim.bo.filetype
-      if  current_filetype == 'go' then
-        load_go_config()
-      end
-
-    end,
-		dependencies = {
-			{ 'nvim-neotest/nvim-nio' },
-			{ 
-        'rcarriga/nvim-dap-ui',
-        opts = {
-          layouts = {
-            {
-              elements = {
-                {
-                  id = 'repl',
-                  size = 0.20,
-                },
-                {
-                  id = 'scopes',
-                  size = 0.65,
-                },
-                {
-                  id = 'breakpoints',
-                  size = 0.15,
-                },
-              },
-              position = 'right',
-              size = 50,
-            },
-          },
+require('dapui').setup({
+  layouts = {
+    {
+      elements = {
+        {
+          id = 'repl',
+          size = 0.20,
+        },
+        {
+          id = 'scopes',
+          size = 0.65,
+        },
+        {
+          id = 'breakpoints',
+          size = 0.15,
         },
       },
-		},
-	}
-}
+      position = 'right',
+      size = 50,
+    },
+  },
+})
+
+
+-- Load dap configs
+load_go_config()

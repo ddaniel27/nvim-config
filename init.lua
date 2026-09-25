@@ -54,6 +54,14 @@ vim.pack.add({
 })
 require('config.navigator')
 
+-- DAP plugins
+vim.pack.add({
+  { src = 'https://github.com/nvim-neotest/nvim-nio' },
+  { src = 'https://github.com/rcarriga/nvim-dap-ui' },
+  { src = 'https://github.com/mfussenegger/nvim-dap' },
+})
+require('config.dap')
+
 -- require('functions')
 require('settings')
 require('mappings')
