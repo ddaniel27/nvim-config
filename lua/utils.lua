@@ -29,4 +29,15 @@ set_config_values()
 
 M.obsidian_config = obsidian_config
 
+vim.api.nvim_create_user_command('Obsidian', function()
+  -- to use in other machines
+  local path = '/tickets/Tickets.md'
+  if vim.env.MACHINE_ENV == 'personal' then
+    path = '/todo/TO-DO.md'
+  end
+
+  vim.cmd('cd ' .. M.obsidian_config['default_workspace'])
+  vim.cmd('edit ' .. M.obsidian_config['default_workspace'] .. path)
+end, {})
+
 return M

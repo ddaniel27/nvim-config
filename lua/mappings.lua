@@ -28,8 +28,8 @@ set('n', '<Leader>j', ':-tabmove<CR>', opts)
 set('n', 'gd', vim.lsp.buf.definition, opts)
 set('n', ']d', function() vim.diagnostic.jump({count=1,float=true}) end, opts)
 set('n', '[d', function() vim.diagnostic.jump({count=-1,float=true}) end, opts)
--- set('n', ']r', require('navigator.treesitter').goto_next_usage, opts)
--- set('n', '[r', require('navigator.treesitter').goto_previous_usage, opts)
+set('n', ']r', require('navigator.treesitter').goto_next_usage, opts)
+set('n', '[r', require('navigator.treesitter').goto_previous_usage, opts)
 
 
 -- |---------- PLUGINS MAPPINGS -----------|
@@ -62,11 +62,11 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 -- Mappings Tex files (with autocmd)
--- vim.api.nvim_create_autocmd('FileType', {
---   pattern = 'tex',
---   callback = function()
---     local opts = { buffer = true }
---     set('n', '<F3>', ':VimtexCompile<CR>', opts)
---     set('n', '\\lbi', 'o\\begin{itemize}\n\\end{itemize}<Esc>O\\item <Esc>', opts)
---   end,
--- })
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'tex',
+  callback = function()
+    local opts = { buffer = true }
+    set('n', '<F3>', ':VimtexCompile<CR>', opts)
+    set('n', '\\lbi', 'o\\begin{itemize}\n\\end{itemize}<Esc>O\\item <Esc>', opts)
+  end,
+})

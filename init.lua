@@ -20,7 +20,6 @@ vim.api.nvim_create_autocmd('InsertEnter', {
   end
 })
 
--- ***Aesthetic***
 -- Tabs and lines
 vim.pack.add({
   { src = 'https://github.com/nvim-lualine/lualine.nvim' },
@@ -96,19 +95,6 @@ vim.pack.add({
 })
 require('config.blink')
 
-
--- Obsidian plugin
-vim.api.nvim_create_user_command('Obsidian', function()
-  -- to use in other machines
-  local path = '/tickets/Tickets.md'
-  if vim.env.MACHINE_ENV == 'personal' then
-    path = '/todo/TO-DO.md'
-  end
-
-  vim.cmd('cd ' .. utils.obsidian_config['default_workspace'])
-  vim.cmd('edit ' .. utils.obsidian_config['default_workspace'] .. path)
-end, {})
-
 local root_path = vim.fn.expand '~' .. '/personal/vaults'
 vim.api.nvim_create_autocmd({
   'BufReadPre',
@@ -138,7 +124,6 @@ vim.api.nvim_create_autocmd('FileType', {
 
 
 
--- require('functions')
+require('functions')
 require('settings')
 require('mappings')
--- require('config.lazy')
