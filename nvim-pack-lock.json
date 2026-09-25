@@ -113,6 +113,10 @@
     "vim-signify": {
       "rev": "3b5ae37eb2b77c3ae58d60dfdc3fc30258078663",
       "src": "https://github.com/mhinz/vim-signify"
+    },
+    "vimtex": {
+      "rev": "42dcf1699e45725bd3b366ecab2ae06f6e0f8118",
+      "src": "https://github.com/lervag/vimtex"
     }
   }
 }

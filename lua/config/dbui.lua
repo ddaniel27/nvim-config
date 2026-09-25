@@ -43,17 +43,13 @@ local function personal_db_config()
   return {}
 end
 
-function setup_dbui()
-  vim.g.db_ui_use_nerd_fonts = 1
+vim.g.db_ui_use_nerd_fonts = 1
 
-  local dbs = {}
-  if vim.env.MACHINE_ENV == 'personal' then
-    dbs = personal_db_config()
-  else
-    dbs = work_db_config()
-  end
-
-  vim.g.dbs = dbs
+local dbs = {}
+if vim.env.MACHINE_ENV == 'personal' then
+  dbs = personal_db_config()
+else
+  dbs = work_db_config()
 end
 
-setup_dbui()
+vim.g.dbs = dbs

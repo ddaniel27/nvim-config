@@ -124,6 +124,19 @@ vim.api.nvim_create_autocmd({
   end
 })
 
+-- VimTex plugin
+vim.api.nvim_create_autocmd('FileType', {
+  once = true,
+  pattern = 'tex',
+  callback = function()
+    vim.pack.add({
+      { src = 'https://github.com/lervag/vimtex' },
+    })
+    require('config.vimtex')
+  end
+})
+
+
 
 -- require('functions')
 require('settings')
