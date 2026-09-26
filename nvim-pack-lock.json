@@ -21,14 +21,6 @@
       "rev": "13bb178a299f7493dd64427a58e61904c4b58ecb",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
-    "go.nvim": {
-      "rev": "f5d1f11d4f616efbe2339286310bb89c4853d769",
-      "src": "https://github.com/ray-x/go.nvim"
-    },
-    "guihua.lua": {
-      "rev": "4c513d5dac550af77034cced421967b393261509",
-      "src": "https://github.com/ray-x/guihua.lua"
-    },
     "lualine.nvim": {
       "rev": "221ce6b2d999187044529f49da6554a92f740a96",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
@@ -40,10 +32,6 @@
     "mfd.nvim": {
       "rev": "72ae627792960a7e490cb5242a78c570d02ba775",
       "src": "https://github.com/kungfusheep/mfd.nvim"
-    },
-    "navigator.lua": {
-      "rev": "7fc83075fda30b593c0dd34bf858e41507949914",
-      "src": "https://github.com/ray-x/navigator.lua"
     },
     "nvim-autopairs": {
       "rev": "430522f95fe4fb7c511ec64f8c1a90cc6a66c05c",

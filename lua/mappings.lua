@@ -47,16 +47,15 @@ set('n', '<Leader>b', require('fzf-lua').oldfiles, opts)
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'go',
   callback = function()
-    set('n', '<F1>', ':GoAlt<CR>', opts)
-    set('n', '<F3>', ':GoTestFunc<CR>', opts)
+    set('n', '<F1>', require('functions.go-funcs').switch, opts)
+    set('n', '<F3>', require('functions.go-funcs').run_test, opts)
     set('n', '<F4>', function() require('dap').set_breakpoint(vim.fn.input('Condition: ')) end, opts)
     set('n', '<F5>', ':DapToggleBreakpoint<CR>', opts)
     set('n', '<F6>', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, opts)
     set('n', '<F7>', ':DapStepInto<CR>', opts)
     set('n', '<F8>', ':DapStepOver<CR>', opts)
     set('n', '<F9>', ':DapStepOut<CR>', opts)
-    set('n', '<F11>', ':DapContinue<CR>', opts)
-    set('n', '<F12>', ':DapUiToggle<CR>:DapContinue<CR>', opts)
+    set('n', '<F12>', ':DapContinue<CR>', opts)
   end,
 })
 
