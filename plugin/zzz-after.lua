@@ -1,3 +1,3 @@
-require('functions')
+require('functions.general-funcs')
 require('settings')
 require('mappings')

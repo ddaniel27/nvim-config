@@ -4,37 +4,6 @@ vim.pack.add({
   { src = 'https://github.com/mfussenegger/nvim-dap' },
 })
 
-local function get_go_test()
-  local tests_query = [[
-  (function_declaration
-    name: (identifier) @testname
-    parameters: (parameter_list
-      . (parameter_declaration
-        type: (pointer_type) @type) .)
-    (#match? @type "*testing.(T|M)")
-    (#match? @testname "^Test.+$")) @parent
-  ]]
-  
-  local stop_row = vim.api.nvim_win_get_cursor(0)[1]
-  local parser = vim.treesitter.get_parser(0)
-  local root = (parser:parse()[1]):root()
-  local test_query = vim.treesitter.query.parse('go', tests_query)
-
-  local name
-
-  for _, match, _ in test_query:iter_matches(root, 0, 0, stop_row, {all = true}) do
-    for id, nodes in pairs(match) do
-      for _, node in pairs(nodes) do
-        if test_query.captures[id] == "testname" then
-          name = vim.treesitter.get_node_text(node, 0)
-        end
-      end
-    end
-  end
-  
-  return name
-end
-
 local function work_go_dap_config()
 			local dap = require('dap')
       local work_configs = {
@@ -128,7 +97,7 @@ local function personal_go_dap_config()
           mode = 'test',
           program =  './${relativeFileDirname}',
           outputMode = 'remote',
-          args = function() return { '-test.run=^'.. get_go_test() ..'$'} end,
+          args = function() return { '-test.run=^'.. require('functions.go-funcs').get_go_test_name() ..'$'} end,
         },
       }
 
@@ -245,6 +214,20 @@ require('dapui').setup({
     },
   },
 })
+
+local dap, dapui = require("dap"), require("dapui")
+dap.listeners.before.attach.dapui_config = function()
+  dapui.open()
+end
+dap.listeners.before.launch.dapui_config = function()
+  dapui.open()
+end
+-- dap.listeners.before.event_terminated.dapui_config = function()
+--   dapui.close()
+-- end
+-- dap.listeners.before.event_exited.dapui_config = function()
+--   dapui.close()
+-- end
 
 
 -- Load dap configs
