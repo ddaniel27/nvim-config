@@ -35,7 +35,7 @@ vim.api.nvim_create_autocmd({ 'Filetype' }, {
 
 -- Auto format go files when saved
 vim.api.nvim_create_autocmd('BufWritePre', {
-  pattern = '*.go',
+  pattern = {'*.go', '*.zig', '*.jl'},
   callback = function()
     vim.lsp.buf.format({ async = false })
   end,

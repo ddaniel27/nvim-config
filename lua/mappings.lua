@@ -45,10 +45,11 @@ set('n', '<Leader>b', require('fzf-lua').oldfiles, opts)
 
 -- Mappings Go files (with autocmd)
 vim.api.nvim_create_autocmd('FileType', {
+  once = true,
   pattern = 'go',
   callback = function()
     set('n', '<F1>', require('functions.go-funcs').switch, opts)
-    set('n', '<F3>', require('functions.go-funcs').run_test, opts)
+    -- set('n', '<F3>', require('functions.go-funcs').run_test, opts)
     set('n', '<F4>', function() require('dap').set_breakpoint(vim.fn.input('Condition: ')) end, opts)
     set('n', '<F5>', ':DapToggleBreakpoint<CR>', opts)
     set('n', '<F6>', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, opts)
@@ -61,6 +62,7 @@ vim.api.nvim_create_autocmd('FileType', {
 
 -- Mappings Tex files (with autocmd)
 vim.api.nvim_create_autocmd('FileType', {
+  once = true,
   pattern = 'tex',
   callback = function()
     local opts = { buffer = true }

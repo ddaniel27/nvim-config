@@ -58,13 +58,12 @@ function M.get_go_test_name()
   return name
 end
 
-function M.run_test()
-  local test_name = M.get_go_test_name()
-  if test_name == nil or test_name == "" then
-    vim.notify("error getting test name", vim.log.levels.ERROR)
-    return
-  end
-
-end   
+-- function M.run_test()
+--   local test_name = M.get_go_test_name()
+--   if test_name == nil or test_name == "" then
+--     vim.notify("error getting test name", vim.log.levels.ERROR)
+--     return
+--   end
+-- end   
 
 return M
