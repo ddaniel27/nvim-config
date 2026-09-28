@@ -30,6 +30,14 @@ vim.g.clipboard = {
   },
 }
 
+-- quickfix window size
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'qf',
+  callback = function()
+    vim.cmd('resize 3')
+  end,
+})
+
 -- colorscheme configs
 vim.cmd('colorscheme mfd')
 vim.cmd('syntax enable')
